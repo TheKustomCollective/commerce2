@@ -1,0 +1,114 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "frontend/package.json", "use": "@vercel/next" },
+    { "src": "backend/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/server.js" },
+    { "src": "/(.*)", "dest": "frontend/$1" }
+  ]
+}
+🔥 Perfect — since your backend is Node.js, we can make this seamless and fast.
+Here’s exactly what to do — just 3 quick steps and you’ll have your backend running under the same domain on Vercel.
+
+
+---
+
+⚙️ STEP 1 — Create vercel.json (in your repo root)
+
+Go to the root of your commerce2 repo and create a new file named vercel.json with this exact content:
+
+{
+  "version": 2,
+  "builds": [
+    { "src": "frontend/package.json", "use": "@vercel/next" },
+    { "src": "backend/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/server.js" },
+    { "src": "/(.*)", "dest": "frontend/$1" }
+  ]
+}
+
+📘 What this does:
+
+Builds your Next.js frontend from /frontend
+
+Deploys your Node.js backend from /backend/server.js
+
+Routes all /api/... requests to your backend
+
+Routes everything else to your frontend
+
+
+
+---
+
+⚙️ STEP 2 — Make sure backend entry file is named correctly
+
+In your backend folder, you should have something like:
+
+commerce2/
+└── backend/
+    ├── server.js
+    ├── package.json
+    └── routes/
+
+Your server.js should export a handler for Vercel like this:
+
+const express = require("express");
+const app = express();
+
+// Example route
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Backend connected successfully!" });
+});
+
+// Export as handler for Vercel
+module.exports = app;
+
+> ⚠️ Vercel doesn’t “listen” on a port like a normal Express app. You export your Express app instead of calling app.listen().
+
+
+
+If your server currently uses app.listen(port), remove that line.
+
+
+---
+
+🧩 STEP 3 — Commit and Push
+
+In your terminal:
+
+git add vercel.json
+git commit -m "Add backend connection config for Vercel"
+git push origin main
+
+
+---
+
+🚀 STEP 4 — Redeploy
+
+Go to your Vercel dashboard → commerce2 project → Deploy
+Vercel will automatically detect the new config and rebuild both frontend + backend.
+
+
+---
+
+✅ STEP 5 — Test Your Backend
+
+After the deploy finishes: Visit
+👉 https://your-app-name.vercel.app/api/hello
+
+If you see:
+
+{ "message": "Backend connected successfully!" }
+
+🎉 You’re live — frontend + backend are now served from one domain.
+
+
+---
+
+
+If you’d like, I can also give you the correct Express server.js template formatted for Vercel (production-safe, supports routes, CORS, JSON, etc.) — want me to drop that in next?
