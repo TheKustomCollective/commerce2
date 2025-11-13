@@ -1,11 +1,12 @@
 const express = require('express');
+const { createVercelHandler } = require('vercel-server');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/products', productsRouter);
+module.exports = createVercelHandler(app);
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
