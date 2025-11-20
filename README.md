@@ -3,6 +3,29 @@
 
 CommerceCult is an AI-powered business platform with Stripe payment integration.
 
+---
+
+## 🎯 **NEW HERE? START WITH THIS:**
+
+### 👉 **[START_HERE.md](./START_HERE.md)** ← Get running in 5 minutes!
+
+This is your fastest path from clone to working app. Perfect if you're frustrated and just want it to work!
+
+---
+
+## 📚 Documentation Guide
+
+Choose the guide that fits your needs:
+
+| Document | Purpose | Time | Best For |
+|----------|---------|------|----------|
+| **[START_HERE.md](./START_HERE.md)** | Quick 5-minute setup | 5 min | First-time users |
+| **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** | Common commands & fixes | Quick | Daily reference |
+| **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** | Detailed instructions | 15 min | Comprehensive help |
+| **[CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)** | What was fixed | 5 min | Technical details |
+
+---
+
 ## Repository Structure
 
 - **`CommerceCult_app_v2/`** - Main full-stack application
