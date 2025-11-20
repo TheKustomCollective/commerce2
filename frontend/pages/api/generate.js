@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     }
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4.1-mini",
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are CommerceCult's content engine." },
         { role: "user", content: prompt }
