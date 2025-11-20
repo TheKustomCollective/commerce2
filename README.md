@@ -59,8 +59,9 @@ This update addresses several critical issues:
 
 ## Need Help?
 
-- 📖 Read the [Setup Guide](./SETUP_GUIDE.md) for detailed instructions
-- 🐛 Common issues and solutions are documented in the Setup Guide
+- 📋 [**Quick Reference**](./QUICK_REFERENCE.md) - Common commands and troubleshooting at a glance
+- 📖 [**Setup Guide**](./SETUP_GUIDE.md) - Detailed step-by-step instructions
+- 🐛 Common issues and solutions are documented in both guides
 - 💳 Use Stripe test cards: `4242 4242 4242 4242` for successful payments
 
 ## Static Site (GitHub Pages)
