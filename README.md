@@ -1,14 +1,92 @@
-# CommerceCult (static site)
-
-This is a minimal static site for the CommerceCult project. It is intended to be published with GitHub Pages and served at the custom domain `commercecult.app` (CNAME file is present).
-
-Files added:
-- `index.html` — landing page
-- `style.css` — minimal styling
-- `CNAME` — already present (commercecult.app)
-
-To publish:
-1. Add the deploy SSH key (provided earlier) as a repository deploy key with write access.
-2. From this workspace I'll push the `main` branch to `git@github.com:TheKustomCollective/commerce2.git` and enable GitHub Pages.
 # COMMERCECULT
-BUSINESS INTELLEGENCE SOFTWARE
+## BUSINESS INTELLIGENCE SOFTWARE
+
+CommerceCult is an AI-powered business platform with Stripe payment integration.
+
+---
+
+## 🎯 **NEW HERE? START WITH THIS:**
+
+### 👉 **[START_HERE.md](./START_HERE.md)** ← Get running in 5 minutes!
+
+This is your fastest path from clone to working app. Perfect if you're frustrated and just want it to work!
+
+---
+
+## 📚 Documentation Guide
+
+Choose the guide that fits your needs:
+
+| Document | Purpose | Time | Best For |
+|----------|---------|------|----------|
+| **[START_HERE.md](./START_HERE.md)** | Quick 5-minute setup | 5 min | First-time users |
+| **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** | Common commands & fixes | Quick | Daily reference |
+| **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** | Detailed instructions | 15 min | Comprehensive help |
+| **[CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)** | What was fixed | 5 min | Technical details |
+
+---
+
+## Repository Structure
+
+- **`CommerceCult_app_v2/`** - Main full-stack application
+  - `server/` - Express backend with Stripe integration
+  - `client/` - Next.js React frontend
+  - `database/` - PostgreSQL schema
+- **`frontend/`** - Standalone Next.js pages with OpenAI integration
+- **`backend/`** - Simple Express server
+- **Root files** - Static GitHub Pages site (published at `commercecult.app`)
+
+## 🚀 Quick Start
+
+**Ready to get started?** See the [**SETUP_GUIDE.md**](./SETUP_GUIDE.md) for detailed step-by-step instructions.
+
+### TL;DR
+
+```bash
+# 1. Install dependencies
+cd CommerceCult_app_v2/server && npm install
+cd ../client && npm install
+
+# 2. Configure environment variables
+cp server/.env.example server/.env
+cp client/.env.example client/.env.local
+# Edit .env files with your Stripe keys
+
+# 3. Run the application
+# Terminal 1:
+cd server && npm run dev
+
+# Terminal 2:
+cd client && npm run dev
+
+# 4. Open http://localhost:3000
+```
+
+## What's Included
+
+✅ **Stripe Checkout** - Complete payment flow with test mode support  
+✅ **Webhook handling** - Secure webhook verification for transaction events  
+✅ **Next.js frontend** - Modern React framework with hot reload  
+✅ **Express backend** - RESTful API with CORS support  
+✅ **PostgreSQL schema** - Database structure for users, products, and transactions  
+✅ **OpenAI integration** - AI content generation (frontend/pages/api/)
+
+## Key Features Fixed
+
+This update addresses several critical issues:
+
+1. ✅ **Fixed invalid OpenAI model** - Changed from `gpt-4.1-mini` to `gpt-4o-mini`
+2. ✅ **Added environment configuration** - Created `.env.example` files for all components
+3. ✅ **Comprehensive setup guide** - Step-by-step instructions with troubleshooting
+4. ✅ **Clear documentation** - Organized README with quick start instructions
+
+## Need Help?
+
+- 📋 [**Quick Reference**](./QUICK_REFERENCE.md) - Common commands and troubleshooting at a glance
+- 📖 [**Setup Guide**](./SETUP_GUIDE.md) - Detailed step-by-step instructions
+- 🐛 Common issues and solutions are documented in both guides
+- 💳 Use Stripe test cards: `4242 4242 4242 4242` for successful payments
+
+## Static Site (GitHub Pages)
+
+The root `index.html` and `style.css` files are published to GitHub Pages at `commercecult.app`.
