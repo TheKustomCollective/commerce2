@@ -1,5 +1,0 @@
-
-/* Minimal global styles. For Tailwind - replace with proper Tailwind setup if desired. */
-html,body,#__next { height: 100%; }
-body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-button { padding: 10px 16px; border-radius: 8px; border: 1px solid #333; background: #fff; cursor: pointer; }
