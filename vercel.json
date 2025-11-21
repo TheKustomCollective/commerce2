@@ -1,7 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd CommerceCult_app_v2-1/frontend && npm install && npm run build",
-  "outputDirectory": "CommerceCult_app_v2-1/frontend/.next",
+  "buildCommand": "",
+  "devCommand": "npm run dev",
+  "installCommand": "",
   "framework": "nextjs",
-  "installCommand": "cd CommerceCult_app_v2-1/frontend && npm install"
+  "outputDirectory": ".next"
 }
