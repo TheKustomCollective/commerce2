@@ -1,1 +1,8 @@
 {  "version": 2,  "builds": [    { "src": "frontend/package.json", "use": "@vercel/static-build" },    { "src": "backend/**/*.js", "use": "@vercel/node" }  ],  "routes": [    { "src": "/api/(.*)", "dest": "backend/$1.js" },    { "src": "/(.*)", "dest": "frontend/$1" }  ]}
+{
+  "version": 2,
+  "buildCommand": "cd CommerceCult_app_v2-1/frontend && npm install && npm run build",
+  "outputDirectory": "CommerceCult_app_v2-1/frontend/.next",
+  "framework": "nextjs",
+  "installCommand": "cd CommerceCult_app_v2-1/frontend && npm install"
+}
