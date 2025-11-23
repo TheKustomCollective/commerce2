@@ -1,0 +1,79 @@
+name: Social Media Marketing Bot
+
+on:
+  schedule:
+    # Run every 3 hours during business days
+    - cron: '0 9,12,15,18,21 * * 1-5'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  post-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd bot
+          npm init -y
+          npm install
+
+      - name: Run Social Media Poster
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_ORG_ID: ${{ secrets.LINKEDIN_ORG_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_BUSINESS_ID: ${{ secrets.INSTAGRAM_BUSINESS_ID }}
+        run: |
+          cd bot/scripts
+          node social-media-poster.js
+
+      - name: Commit logs
+        run: |
+          git config --local user.email "bot@commercecult.app"
+          git config --local user.name "CommerceCult Bot"
+          git add bot/logs/ || true
+          git commit -m "Bot: Update posting logs [skip ci]" || true
+          git push || true
+
+  curate-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd bot
+          npm init -y
+          npm install
+
+      - name: Run Content Curator
+        run: |
+          cd bot/scripts
+          node content-curator.js
+
+      - name: Commit curated content
+        run: |
+          git config --local user.email "bot@commercecult.app"
+          git config --local user.name "CommerceCult Bot"
+          git add bot/data/ || true
+          git commit -m "Bot: Update curated content [skip ci]" || true
+          git push || true

@@ -1,0 +1,47 @@
+{
+  "schedule": {
+    "twitter": {
+      "postsPerDay": 5,
+      "times": ["09:00", "12:00", "15:00", "18:00", "21:00"],
+      "timezone": "America/New_York"
+    },
+    "facebook": {
+      "postsPerDay": 2,
+      "times": ["13:00", "19:00"],
+      "timezone": "America/New_York"
+    },
+    "linkedin": {
+      "postsPerDay": 1,
+      "times": ["08:00"],
+      "timezone": "America/New_York",
+      "weekdaysOnly": true
+    },
+    "instagram": {
+      "postsPerDay": 1,
+      "times": ["11:00"],
+      "timezone": "America/New_York"
+    }
+  },
+  "contentMix": {
+    "promotional": 30,
+    "educational": 40,
+    "inspirational": 20,
+    "community": 10
+  },
+  "campaigns": [
+    {
+      "name": "Launch Week",
+      "startDate": "2025-12-01",
+      "endDate": "2025-12-07",
+      "postsPerDay": 8,
+      "focus": "Generate Any Business Now feature"
+    },
+    {
+      "name": "FundMyStartup Awareness",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-31",
+      "postsPerDay": 5,
+      "focus": "FundMyStartup program"
+    }
+  ]
+}

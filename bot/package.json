@@ -1,0 +1,27 @@
+{
+  "name": "commercecult-marketing-bot",
+  "version": "1.0.0",
+  "description": "Automated marketing bot for CommerceCult social media campaigns",
+  "main": "scripts/social-media-poster.js",
+  "scripts": {
+    "post": "node scripts/social-media-poster.js",
+    "curate": "node scripts/content-curator.js",
+    "test": "echo \"Run bot in test mode\" && node scripts/social-media-poster.js"
+  },
+  "keywords": [
+    "marketing",
+    "automation",
+    "social-media",
+    "bot"
+  ],
+  "author": "CommerceCult",
+  "license": "MIT",
+  "dependencies": {
+    "twitter-api-v2": "^1.15.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
