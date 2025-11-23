@@ -25,8 +25,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Tools</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/marketplace" className="hover:text-white transition">B2B Marketplace</Link></li>
               <li><Link href="/calculators/roi" className="hover:text-white transition">ROI Calculator</Link></li>
               <li><Link href="/calculators/loan" className="hover:text-white transition">Loan Repayment Calculator</Link></li>
+              <li><Link href="/pages" className="hover:text-white transition">My Pages (Free Hosting)</Link></li>
               <li><Link href="/fundmystartup" className="hover:text-white transition">FundMyStartup Campaign</Link></li>
             </ul>
           </div>

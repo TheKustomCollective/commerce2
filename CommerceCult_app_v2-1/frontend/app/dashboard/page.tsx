@@ -172,6 +172,7 @@ export default function DashboardPage() {
               <div className="space-y-3">
                 <ToolLink icon="📊" name="ROI Calculator" href="/calculators/roi" />
                 <ToolLink icon="💵" name="Loan Calculator" href="/calculators/loan" />
+                <ToolLink icon="🌐" name="My Pages" href="/pages" />
                 <ToolLink icon="📈" name="Market Size Tool" href="/features" />
                 <ToolLink icon="🎯" name="Business Name Generator" href="/features" />
               </div>
