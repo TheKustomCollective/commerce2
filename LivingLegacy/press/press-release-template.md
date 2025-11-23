@@ -10,7 +10,7 @@
 
 ---
 
-**[CITY, STATE] – [DATE]** – Living Legacy, a division of CommerceCult, today announced the launch of its comprehensive end-of-life concierge services designed to provide families with peace of mind during life's most challenging transitions. The innovative platform combines personalized human support with cutting-edge secure technology to make end-of-life planning accessible, dignified, and stress-free.
+**[Las Vegas, Nevada] – [12/01/2025]** – Living Legacy, a division of CommerceCult, today announced the launch of its comprehensive end-of-life concierge services designed to provide families with peace of mind during life's most challenging transitions. The innovative platform combines personalized human support with cutting-edge secure technology to make end-of-life planning accessible, dignified, and stress-free.
 
 ### Addressing a Critical Need
 
@@ -23,7 +23,7 @@ More than 70% of Americans don't have documented end-of-life plans, leaving fami
 
 ### Humanizing a Difficult Process
 
-"End-of-life planning shouldn't be scary or complicated," said [FOUNDER/CEO NAME], [TITLE] of Living Legacy. "We've created a service that treats this important life stage with the dignity and care it deserves. Our goal is to help people document their wishes clearly and give families the gift of certainty during uncertain times."
+"End-of-life planning shouldn't be scary or complicated," said [FOUNDER/Kyle Avey], [COO] of Living Legacy. "We've created a service that treats this important life stage with the dignity and care it deserves. Our goal is to help people document their wishes clearly and give families the gift of certainty during uncertain times."
 
 ### Key Features
 
@@ -51,7 +51,7 @@ Living Legacy's platform leverages modern technology while maintaining the essen
 
 Living Legacy offers flexible pricing options including:
 - Free basic planning tools
-- Affordable annual subscriptions starting at $299
+- Affordable annual subscriptions starting at $99
 - Lifetime memberships for one-time payment
 - Insurance coordination and payment plan options
 
@@ -65,8 +65,8 @@ For more information, visit [livinglegacy.commercecult.app](https://livinglegacy
 
 ### Media Contact
 
-**Name**: [CONTACT NAME]  
-**Title**: [TITLE]  
+**Name**: [Cody Deacker]  
+**Title**: [Media Publications  ]  
 **Email**: press@livinglegacy.commercecult.app  
 **Phone**: 1-800-LIVING-LEGACY  
 **Website**: [livinglegacy.commercecult.app](https://livinglegacy.commercecult.app)
