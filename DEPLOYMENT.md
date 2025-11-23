@@ -25,12 +25,25 @@
 - Follow DNS instructions provided by Vercel
 
 ### 4. Update DNS
-At your domain registrar, set:
+At your domain registrar, **REPLACE** the old GitHub Pages records with:
+
+**OLD (GitHub Pages) - REMOVE THESE:**
+```
+A @ 185.199.108.153
+A @ 185.199.109.153
+A @ 185.199.110.153
+A @ 185.199.111.153
+```
+
+**NEW (Vercel) - ADD THIS:**
 ```
 Type: A
 Name: @
-Value: 76.76.21.21
+Value: 216.198.79.1
+```
 
+Optional (for www subdomain):
+```
 Type: CNAME  
 Name: www
 Value: cname.vercel-dns.com

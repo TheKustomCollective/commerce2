@@ -1,0 +1,33 @@
+name: Sync Living Legacy Media Kit
+
+on:
+  push:
+    paths:
+      - 'LivingLegacy/**'
+      - 'CommerceCult_app_v2-1/frontend/app/livinglegacy/**'
+  workflow_dispatch:
+
+jobs:
+  sync-media-kit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Trigger Vercel Deployment
+        run: |
+          npm install -g vercel
+          cd CommerceCult_app_v2-1/frontend
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --confirm
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Notify completion
+        run: echo "Living Legacy media kit synced and deployed successfully!"
