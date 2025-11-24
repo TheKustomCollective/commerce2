@@ -21,14 +21,14 @@ export default function Navigation() {
             <Link href="/marketplace" className="text-gray-700 hover:text-blue-600 transition">
               B2B Marketplace
             </Link>
+            <Link href="/marketing" className="text-gray-700 hover:text-blue-600 transition">
+              $0 Marketing
+            </Link>
             <Link href="/fundmystartup" className="text-gray-700 hover:text-blue-600 transition">
               FundMyStartup
             </Link>
             <Link href="/calculators" className="text-gray-700 hover:text-blue-600 transition">
               Calculators
-            </Link>
-            <Link href="/pages" className="text-gray-700 hover:text-blue-600 transition">
-              My Pages
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-blue-600 transition">
               About

@@ -47,6 +47,11 @@ export default function VendorDashboardPage() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
+        {/* Back Link */}
+        <Link href="/marketplace" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4 font-semibold">
+          ← Back to Marketplace
+        </Link>
+        
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>

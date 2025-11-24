@@ -70,18 +70,18 @@ export default function MarketplacePage() {
               Connect microbusinesses with enterprise buyers. Sell products, services, and innovative ideas at scale.
             </p>
             <div className="flex gap-4">
-              <button
-                onClick={() => setUserType('vendor')}
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition"
+              <Link
+                href="/marketplace/vendor"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center"
               >
                 I'm a Vendor
-              </button>
-              <button
-                onClick={() => setUserType('buyer')}
-                className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-400 transition border-2 border-white"
+              </Link>
+              <Link
+                href="/marketplace/buyer"
+                className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-400 transition border-2 border-white inline-block text-center"
               >
                 I'm a Buyer
-              </button>
+              </Link>
             </div>
           </div>
         </div>
