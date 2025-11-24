@@ -5,6 +5,13 @@ import Link from 'next/link'
 export default function ZeroDollarMarketingPage() {
   return (
     <div className="min-h-screen pt-20 pb-12">
+      {/* Back to Home Link */}
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <Link href="/" className="inline-flex items-center text-gray-600 hover:text-blue-600 font-semibold">
+          ← Back to Home
+        </Link>
+      </div>
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">

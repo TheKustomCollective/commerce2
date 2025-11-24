@@ -126,6 +126,12 @@ export default function Home() {
               link="/marketplace"
             />
             <FeatureCard
+              icon="💚"
+              title="$0 Marketing Plan"
+              description="Go viral without spending a dime using our proven zero-budget strategy"
+              link="/marketing"
+            />
+            <FeatureCard
               icon="📊"
               title="ROI Calculator"
               description="Calculate returns, break-even points, and forecast profitability"
