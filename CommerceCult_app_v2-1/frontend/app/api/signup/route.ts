@@ -1,19 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-// Simple in-memory user store (replace with database in production)
-// Format: { email: { password: hashedPassword, name: string, createdAt: string } }
-const users = new Map<string, { password: string; name: string; createdAt: string }>()
-
-// Simple password hash function (use bcrypt in production)
-function hashPassword(password: string): string {
-  // In production, use: await bcrypt.hash(password, 10)
-  return Buffer.from(password).toString('base64')
-}
-
-function verifyPassword(password: string, hashedPassword: string): boolean {
-  // In production, use: await bcrypt.compare(password, hashedPassword)
-  return Buffer.from(password).toString('base64') === hashedPassword
-}
+import { users, hashPassword } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,16 +41,23 @@ export async function POST(request: NextRequest) {
 
     // Create new user
     const hashedPassword = hashPassword(password)
-    users.set(email.toLowerCase(), {
+    const emailLower = email.toLowerCase()
+    
+    users.set(emailLower, {
       password: hashedPassword,
       name,
+      company,
+      plan,
       createdAt: new Date().toISOString()
     })
 
     console.log('New user registered:', {
-      email: email.toLowerCase(),
+      email: emailLower,
       name,
-      timestamp: new Date().toISOString()
+      company,
+      plan,
+      timestamp: new Date().toISOString(),
+      totalUsers: users.size
     })
 
     // Return success (in production, also create session token)
@@ -88,6 +81,3 @@ export async function POST(request: NextRequest) {
     )
   }
 }
-
-// Export the users map for use in login
-export { users, verifyPassword }

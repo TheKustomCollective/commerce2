@@ -1,21 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-// Simple in-memory user store (shared with signup)
-// In production, this would be a database
-const users = new Map<string, { password: string; name: string; createdAt: string }>()
-
-function verifyPassword(password: string, hashedPassword: string): boolean {
-  return Buffer.from(password).toString('base64') === hashedPassword
-}
-
-// Create a demo account on server start
-if (users.size === 0) {
-  users.set('demo@commercecult.app', {
-    password: Buffer.from('demo1234').toString('base64'),
-    name: 'Demo User',
-    createdAt: new Date().toISOString()
-  })
-}
+import { users, verifyPassword } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {
   try {
@@ -60,7 +44,9 @@ export async function POST(request: NextRequest) {
 
     console.log('Successful login:', {
       email: emailLower,
-      timestamp: new Date().toISOString()
+      name: user.name,
+      timestamp: new Date().toISOString(),
+      totalUsers: users.size
     })
 
     // In production, create a secure session token/JWT here
@@ -71,6 +57,8 @@ export async function POST(request: NextRequest) {
         user: {
           email: emailLower,
           name: user.name,
+          company: user.company,
+          plan: user.plan,
           id: Buffer.from(emailLower).toString('base64')
         },
         redirectTo: '/dashboard'
@@ -85,6 +73,3 @@ export async function POST(request: NextRequest) {
     )
   }
 }
-
-// Export users for signup to access
-export { users }
