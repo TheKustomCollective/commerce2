@@ -34,6 +34,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Check if this is an OAuth user (no password set)
+    if (!user.password && user.provider) {
+      return NextResponse.json(
+        { error: `This account uses ${user.provider} login. Please use "Continue with ${user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}" button.` },
+        { status: 401 }
+      )
+    }
+
     // Verify password
     if (!verifyPassword(password, user.password)) {
       return NextResponse.json(

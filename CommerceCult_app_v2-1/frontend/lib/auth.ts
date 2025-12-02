@@ -5,8 +5,9 @@ export interface User {
   password: string
   name: string
   createdAt: string
-  company?: string
-  plan?: string
+  company: string
+  plan: string
+  provider?: string
 }
 
 // In-memory user store (persists during server runtime)
@@ -26,6 +27,8 @@ if (users.size === 0) {
   users.set('demo@commercecult.app', {
     password: hashPassword('demo1234'),
     name: 'Demo User',
+    company: 'Demo Company',
+    plan: 'free',
     createdAt: new Date().toISOString()
   })
   console.log('Demo account initialized: demo@commercecult.app / demo1234')

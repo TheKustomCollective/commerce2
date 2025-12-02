@@ -4,7 +4,7 @@ import { users, hashPassword } from '@/lib/auth'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, password, name } = body
+    const { email, password, name, company, plan } = body
 
     // Validate required fields
     if (!email || !password || !name) {
@@ -32,22 +32,30 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user already exists
-    if (users.has(email.toLowerCase())) {
+    const emailLower = email.toLowerCase()
+    const existingUser = users.get(emailLower)
+    
+    if (existingUser) {
+      if (existingUser.provider) {
+        return NextResponse.json(
+          { error: `An account with this email already exists using ${existingUser.provider} login. Please use "Continue with ${existingUser.provider.charAt(0).toUpperCase() + existingUser.provider.slice(1)}" button.` },
+          { status: 409 }
+        )
+      }
       return NextResponse.json(
-        { error: 'An account with this email already exists' },
+        { error: 'An account with this email already exists. Please log in instead.' },
         { status: 409 }
       )
     }
 
     // Create new user
     const hashedPassword = hashPassword(password)
-    const emailLower = email.toLowerCase()
     
     users.set(emailLower, {
       password: hashedPassword,
       name,
-      company,
-      plan,
+      company: company || '',
+      plan: plan || 'free',
       createdAt: new Date().toISOString()
     })
 
