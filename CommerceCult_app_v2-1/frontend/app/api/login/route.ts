@@ -1,5 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Simple in-memory user store (shared with signup)
+// In production, this would be a database
+const users = new Map<string, { password: string; name: string; createdAt: string }>()
+
+function verifyPassword(password: string, hashedPassword: string): boolean {
+  return Buffer.from(password).toString('base64') === hashedPassword
+}
+
+// Create a demo account on server start
+if (users.size === 0) {
+  users.set('demo@commercecult.app', {
+    password: Buffer.from('demo1234').toString('base64'),
+    name: 'Demo User',
+    createdAt: new Date().toISOString()
+  })
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -22,28 +39,39 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // TODO: Integrate with authentication service (NextAuth, Supabase, etc.)
-    // For now, we'll accept any email/password combo for demo
-    
-    console.log('Login attempt:', {
-      email,
+    const emailLower = email.toLowerCase()
+    const user = users.get(emailLower)
+
+    // Check if user exists
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Invalid email or password' },
+        { status: 401 }
+      )
+    }
+
+    // Verify password
+    if (!verifyPassword(password, user.password)) {
+      return NextResponse.json(
+        { error: 'Invalid email or password' },
+        { status: 401 }
+      )
+    }
+
+    console.log('Successful login:', {
+      email: emailLower,
       timestamp: new Date().toISOString()
     })
 
-    // Simulate successful login
-    // In production, you would:
-    // 1. Verify credentials against database
-    // 2. Create session token
-    // 3. Set secure HTTP-only cookie
-    
+    // In production, create a secure session token/JWT here
     return NextResponse.json(
       { 
         success: true,
         message: 'Login successful',
         user: {
-          email,
-          name: email.split('@')[0],
-          id: 'demo-user-id'
+          email: emailLower,
+          name: user.name,
+          id: Buffer.from(emailLower).toString('base64')
         },
         redirectTo: '/dashboard'
       },
@@ -57,3 +85,6 @@ export async function POST(request: NextRequest) {
     )
   }
 }
+
+// Export users for signup to access
+export { users }

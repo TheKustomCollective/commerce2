@@ -58,14 +58,37 @@ export default function SignupPage() {
     }
 
     setIsSubmitting(true)
+    setErrors({})
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Signup data:', formData)
-      alert('Account created successfully! Redirecting to dashboard...')
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          name: `${formData.firstName} ${formData.lastName}`,
+          company: formData.company,
+          plan: formData.plan
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setErrors({ general: data.error || 'Signup failed' })
+        setIsSubmitting(false)
+        return
+      }
+
+      // Signup successful - redirect to dashboard
+      window.location.href = data.redirectTo || '/dashboard'
+    } catch (err: any) {
+      setErrors({ general: err.message || 'Something went wrong. Please try again.' })
       setIsSubmitting(false)
-      // In real app: redirect to dashboard or email verification page
-    }, 1500)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -128,6 +151,13 @@ export default function SignupPage() {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* General Error */}
+            {errors.general && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {errors.general}
+              </div>
+            )}
+            
             {/* Name Fields */}
             <div className="grid md:grid-cols-2 gap-4">
               <div>
