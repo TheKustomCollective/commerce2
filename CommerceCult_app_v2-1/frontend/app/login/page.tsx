@@ -38,14 +38,34 @@ export default function LoginPage() {
     }
 
     setIsSubmitting(true)
+    setErrors({})
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Login data:', formData)
-      alert('Login successful! Redirecting to dashboard...')
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setErrors({ general: data.error || 'Login failed' })
+        setIsSubmitting(false)
+        return
+      }
+
+      // Login successful - redirect to dashboard
+      window.location.href = data.redirectTo || '/dashboard'
+    } catch (err: any) {
+      setErrors({ general: err.message || 'Something went wrong. Please try again.' })
       setIsSubmitting(false)
-      // In real app: redirect to dashboard
-    }, 1500)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,6 +133,13 @@ export default function LoginPage() {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* General Error */}
+            {errors.general && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {errors.general}
+              </div>
+            )}
+            
             {/* Email */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
