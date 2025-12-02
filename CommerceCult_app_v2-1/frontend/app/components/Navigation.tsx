@@ -12,26 +12,23 @@ export default function Navigation() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
+            <Link href="/video-generator" className="text-gray-700 hover:text-blue-600 transition">
+              🎬 AI Video
+            </Link>
             <Link href="/features" className="text-gray-700 hover:text-blue-600 transition">
               Features
             </Link>
-            <Link href="/pricing" className="text-gray-700 hover:text-blue-600 transition">
-              Pricing
-            </Link>
             <Link href="/marketplace" className="text-gray-700 hover:text-blue-600 transition">
-              B2B Marketplace
+              Marketplace
             </Link>
             <Link href="/marketing" className="text-gray-700 hover:text-blue-600 transition">
               $0 Marketing
             </Link>
             <Link href="/fundmystartup" className="text-gray-700 hover:text-blue-600 transition">
-              FundMyStartup
+              Funding
             </Link>
             <Link href="/calculators" className="text-gray-700 hover:text-blue-600 transition">
               Calculators
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition">
-              About
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
               Contact

@@ -74,6 +74,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
+              href="/login"
+              className="inline-block px-10 py-5 text-2xl font-bold text-black bg-blue-400 hover:bg-blue-300 rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition-all duration-300 transform hover:scale-105"
+            >
+              🔐 Login
+            </Link>
+            <Link
               href="/generate"
               className="inline-block px-8 py-4 text-xl font-bold text-black bg-green-400 hover:bg-green-300 rounded-lg shadow-[0_0_20px_rgba(0,255,0,0.6)] hover:shadow-[0_0_30px_rgba(0,255,0,0.8)] transition-all duration-300 transform hover:scale-105"
             >
@@ -107,6 +113,12 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon="🎬"
+              title="AI Video Generator"
+              description="Unlimited prompts, zero restrictions - create any video you can imagine"
+              link="/video-generator"
+            />
             <FeatureCard
               icon="📝"
               title="AI Business Plans"
