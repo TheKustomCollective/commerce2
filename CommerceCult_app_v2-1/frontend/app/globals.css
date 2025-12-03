@@ -7,10 +7,17 @@
   --background-rgb: 0, 0, 0;
 }
 
+html {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  min-height: 100vh;
+  height: auto;
 }
