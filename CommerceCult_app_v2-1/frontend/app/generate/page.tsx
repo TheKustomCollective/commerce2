@@ -16,7 +16,13 @@ export default function GenerateBusinessPlanPage() {
     targetMarket: '',
     fundingNeeded: '',
     timeframe: '',
-    description: ''
+    description: '',
+    revenueGoalYear1: '',
+    revenueGoalYear3: '',
+    customerGoalMonth3: '',
+    customerGoalYear1: '',
+    keyMetrics: '',
+    specificMilestones: ''
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
