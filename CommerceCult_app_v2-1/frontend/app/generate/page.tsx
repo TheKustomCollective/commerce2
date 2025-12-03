@@ -1249,6 +1249,7 @@ export default function GenerateBusinessPlanPage() {
                 required
               >
                 <option value="">Select amount</option>
+                <option value="2500">$0 - $5,000 (Bootstrap)</option>
                 <option value="25000">$25,000</option>
                 <option value="50000">$50,000</option>
                 <option value="100000">$100,000</option>
