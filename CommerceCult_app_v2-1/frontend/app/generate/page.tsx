@@ -899,6 +899,100 @@ export default function GenerateBusinessPlanPage() {
               />
             </div>
 
+            {/* SMART Goals Section */}
+            <div className="col-span-2 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">📊 SMART Goals (Recommended)</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Set Specific, Measurable, Achievable, Relevant, and Time-bound goals to create actionable business milestones
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Revenue Goal - Year 1 <span className="text-xs text-gray-500">(Measurable & Time-bound)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="revenueGoalYear1"
+                    value={formData.revenueGoalYear1}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="e.g., $500,000 in first year"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Revenue Goal - Year 3 <span className="text-xs text-gray-500">(Long-term target)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="revenueGoalYear3"
+                    value={formData.revenueGoalYear3}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="e.g., $2.5 million by year 3"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Customer Goal - First 3 Months <span className="text-xs text-gray-500">(Specific & Achievable)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="customerGoalMonth3"
+                    value={formData.customerGoalMonth3}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="e.g., 100 paying customers in 90 days"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Customer Goal - First Year <span className="text-xs text-gray-500">(Annual target)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="customerGoalYear1"
+                    value={formData.customerGoalYear1}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="e.g., 1,000 customers by end of year 1"
+                  />
+                </div>
+
+                <div className="col-span-2">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Key Success Metrics <span className="text-xs text-gray-500">(Measurable & Relevant)</span>
+                  </label>
+                  <textarea
+                    name="keyMetrics"
+                    value={formData.keyMetrics}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    rows={2}
+                    placeholder="e.g., 15% monthly growth rate, 70% customer retention, 35% profit margin, break-even in 12 months"
+                  />
+                </div>
+
+                <div className="col-span-2">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Specific Milestones <span className="text-xs text-gray-500">(Action-oriented checkpoints)</span>
+                  </label>
+                  <textarea
+                    name="specificMilestones"
+                    value={formData.specificMilestones}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
+                    rows={3}
+                    placeholder="e.g., Month 1: Launch website and social media. Month 3: First 100 customers. Month 6: Hire first employee. Month 12: Open second location."
+                  />
+                </div>
+              </div>
+            </div>
+
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition shadow-lg"
