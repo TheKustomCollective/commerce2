@@ -241,6 +241,196 @@ export default function GenerateBusinessPlanPage() {
           { quarter: 'Year 2', milestone: 'Scale operations, $1.2M revenue, profitability achieved' },
           { quarter: 'Year 3', milestone: 'Market leader in region, $2.4M revenue, 25% profit margin' }
         ],
+        executionPlan: {
+          prelaunch: {
+            title: 'Pre-Launch (Weeks 1-8)',
+            tasks: [
+              {
+                week: 'Week 1-2',
+                action: 'Legal & Admin Setup',
+                steps: [
+                  'Register business entity (LLC/Corp)',
+                  'Obtain EIN from IRS',
+                  'Open business bank account',
+                  'Get business insurance',
+                  'Set up accounting system (QuickBooks/Xero)'
+                ],
+                cost: '$1,500-$2,500',
+                outcome: 'Legal business entity established'
+              },
+              {
+                week: 'Week 3-4',
+                action: 'Product/Service Development',
+                steps: [
+                  'Finalize product specifications',
+                  'Source suppliers/vendors (get 3 quotes each)',
+                  'Order initial inventory ($' + (parseInt(formData.fundingNeeded) * 0.3 / 1000).toFixed(0) + 'K)',
+                  'Set up quality control process',
+                  'Create product packaging/branding'
+                ],
+                cost: '$' + (parseInt(formData.fundingNeeded) * 0.3 / 1000).toFixed(0) + 'K-$' + (parseInt(formData.fundingNeeded) * 0.4 / 1000).toFixed(0) + 'K',
+                outcome: 'Ready-to-sell product/service'
+              },
+              {
+                week: 'Week 5-6',
+                action: 'Digital Presence & Marketing Setup',
+                steps: [
+                  'Build website (WordPress/Shopify - $2K)',
+                  'Set up social media accounts (Instagram, Facebook, LinkedIn)',
+                  'Create Google Business Profile',
+                  'Design brand assets (logo, colors, fonts)',
+                  'Write initial content (10 blog posts, 20 social posts)',
+                  'Set up email marketing (Mailchimp/ConvertKit)'
+                ],
+                cost: '$3,000-$5,000',
+                outcome: 'Professional online presence ready'
+              },
+              {
+                week: 'Week 7-8',
+                action: 'Operations & Systems',
+                steps: [
+                  'Set up CRM system (HubSpot/Salesforce)',
+                  'Create standard operating procedures (SOPs)',
+                  'Hire virtual assistant ($500/mo)',
+                  'Set up payment processing (Stripe/Square)',
+                  'Create customer onboarding process',
+                  'Test full customer journey'
+                ],
+                cost: '$2,000-$3,000',
+                outcome: 'Systems ready to handle customers'
+              }
+            ]
+          },
+          month1to3: {
+            title: 'Launch & Customer Acquisition (Months 1-3)',
+            goals: formData.customerGoalMonth3 || '100 customers, $15,000 revenue',
+            tasks: [
+              {
+                action: 'Week 1: Soft Launch',
+                daily: [
+                  'Monday: Launch website, send announcement to email list (warm network)',
+                  'Tuesday: Post launch content on all social channels',
+                  'Wednesday: Reach out to 20 potential customers directly',
+                  'Thursday: Follow up on inquiries, process first orders',
+                  'Friday: Run first paid ads ($50/day budget)',
+                  'Weekend: Monitor metrics, adjust messaging'
+                ],
+                metric: 'Goal: 10 customers, $1,500 revenue'
+              },
+              {
+                action: 'Weeks 2-4: Ramp Up Marketing',
+                daily: [
+                  'Post 2x daily on social media (morning & evening)',
+                  'Send 50 outreach messages/day to target customers',
+                  'Run Facebook/Instagram ads ($100/day)',
+                  'Respond to all inquiries within 2 hours',
+                  'Ask every customer for review/referral',
+                  'Test different ad copy & audiences weekly'
+                ],
+                metric: 'Goal: 30 customers by end of month 1'
+              },
+              {
+                action: 'Month 2: Scale What Works',
+                daily: [
+                  'Double ad spend on best-performing channels',
+                  'Launch referral program (20% off for referrals)',
+                  'Partner with 2 complementary businesses',
+                  'Start content marketing (1 blog post/week)',
+                  'Email list weekly (tips, offers, updates)',
+                  'Track metrics daily: visitors, conversion rate, CAC'
+                ],
+                metric: 'Goal: 30 new customers (60 total)'
+              },
+              {
+                action: 'Month 3: Optimize & Expand',
+                daily: [
+                  'Analyze data: which channels give best ROI?',
+                  'Cut underperforming ad campaigns',
+                  '3x spend on winning strategies',
+                  'Launch retargeting ads for website visitors',
+                  'Implement email automation sequences',
+                  'Start planning product line expansion'
+                ],
+                metric: 'Goal: 40 new customers (100 total, ' + (formData.customerGoalMonth3 || '✓ Hit 3-month target') + ')'
+              }
+            ],
+            budget: {
+              marketing: '$7,500/month',
+              operations: '$2,000/month',
+              inventory: '$' + (parseInt(formData.fundingNeeded) * 0.15 / 1000).toFixed(0) + 'K/month'
+            }
+          },
+          month4to12: {
+            title: 'Growth & Optimization (Months 4-12)',
+            goals: formData.customerGoalYear1 || '1,000 customers, $500K revenue',
+            quarterly: [
+              {
+                quarter: 'Q2 (Months 4-6)',
+                focus: 'Scale Operations',
+                actions: [
+                  'Hire first full-time employee (ops/customer service)',
+                  'Increase ad spend to $300/day',
+                  'Launch 2 new product/service offerings',
+                  'Implement customer loyalty program',
+                  'Attend industry event/trade show',
+                  'Build email list to 2,000+ subscribers'
+                ],
+                targets: '250 total customers, $125K revenue'
+              },
+              {
+                quarter: 'Q3 (Months 7-9)',
+                focus: 'Expand Market Reach',
+                actions: [
+                  'Enter 2 new geographic markets or customer segments',
+                  'Build partnerships with 5 strategic vendors',
+                  'Launch affiliate/influencer program',
+                  'Increase content output (2 blogs/week, 1 video/week)',
+                  'Optimize conversion funnel (goal: 5% conversion rate)',
+                  'Implement advanced analytics & reporting'
+                ],
+                targets: '600 total customers, $300K cumulative revenue'
+              },
+              {
+                quarter: 'Q4 (Months 10-12)',
+                focus: 'Profitability & Systems',
+                actions: [
+                  'Negotiate better supplier terms (volume discounts)',
+                  'Automate repetitive processes (save 10hrs/week)',
+                  'Launch holiday/year-end campaign',
+                  'Plan year 2 growth strategy',
+                  'Build systems to handle 2x current volume',
+                  'Secure line of credit for growth capital'
+                ],
+                targets: formData.customerGoalYear1 || '1,000 customers, $500K annual revenue, break-even or profitable'
+              }
+            ]
+          },
+          year2to3: {
+            title: 'Scaling & Market Leadership (Years 2-3)',
+            year2: {
+              goals: formData.revenueGoalYear3 ? 'Progress toward ' + formData.revenueGoalYear3 : '$1.2M revenue, 2,500 customers, 10% profit margin',
+              priorities: [
+                'Build team: hire 3-5 employees (sales, ops, marketing)',
+                'Open second location or expand online presence nationally',
+                'Launch premium tier products/services',
+                'Implement advanced CRM and marketing automation',
+                'Achieve consistent profitability',
+                'Build strategic partnerships with major brands'
+              ]
+            },
+            year3: {
+              goals: formData.revenueGoalYear3 || '$2.4M revenue, 5,000 customers, 20% profit margin',
+              priorities: [
+                'Expand to multiple locations or markets',
+                'Build management team (hire COO/CFO)',
+                'Consider raising Series A or growth capital',
+                'Explore acquisition opportunities',
+                'Build predictable sales engine',
+                'Position for exit or scale to $10M+'
+              ]
+            }
+          }
+        },
         risks: [
           {
             risk: 'Market competition intensifies',
@@ -677,6 +867,191 @@ export default function GenerateBusinessPlanPage() {
                   <p className="text-gray-700">{milestone.milestone}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* DETAILED EXECUTION PLAN - Step-by-Step Guide */}
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-xl p-8 mb-8 border-2 border-green-300">
+            <div className="flex items-center mb-6">
+              <span className="text-5xl mr-4">🎯</span>
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900">Detailed Execution Plan</h2>
+                <p className="text-lg text-gray-600">Your Step-by-Step Playbook to Success</p>
+              </div>
+            </div>
+
+            {/* Pre-Launch Phase */}
+            <div className="bg-white rounded-xl p-6 mb-6 shadow-md">
+              <h3 className="text-2xl font-bold text-purple-600 mb-4 flex items-center">
+                <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm">1</span>
+                {businessPlan.executionPlan.prelaunch.title}
+              </h3>
+              <div className="space-y-6">
+                {businessPlan.executionPlan.prelaunch.tasks.map((task: any, i: number) => (
+                  <div key={i} className="border-l-4 border-purple-400 pl-6 bg-purple-50 p-4 rounded-r-lg">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-bold text-gray-900">{task.week}: {task.action}</h4>
+                      <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">{task.cost}</span>
+                    </div>
+                    <ul className="space-y-1 mb-3">
+                      {task.steps.map((step: string, j: number) => (
+                        <li key={j} className="text-sm text-gray-700 flex items-start">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="bg-white px-3 py-2 rounded-lg">
+                      <span className="font-semibold text-green-600">Outcome: </span>
+                      <span className="text-gray-700">{task.outcome}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Months 1-3: Launch Phase */}
+            <div className="bg-white rounded-xl p-6 mb-6 shadow-md">
+              <h3 className="text-2xl font-bold text-blue-600 mb-2 flex items-center">
+                <span className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm">2</span>
+                {businessPlan.executionPlan.month1to3.title}
+              </h3>
+              <p className="text-lg font-semibold text-gray-700 mb-4">🎯 Goal: {businessPlan.executionPlan.month1to3.goals}</p>
+              
+              <div className="space-y-6">
+                {businessPlan.executionPlan.month1to3.tasks.map((task: any, i: number) => (
+                  <div key={i} className="border-2 border-blue-200 rounded-lg p-5 bg-blue-50">
+                    <h4 className="font-bold text-blue-900 mb-3 text-lg">{task.action}</h4>
+                    <div className="bg-white rounded-lg p-4 mb-3">
+                      <p className="font-semibold text-gray-800 mb-2">Daily Actions:</p>
+                      <ul className="space-y-2">
+                        {task.daily.map((action: string, j: number) => (
+                          <li key={j} className="text-sm text-gray-700 flex items-start">
+                            <span className="text-blue-600 mr-2 font-bold">{action.split(':')[0]}:</span>
+                            <span>{action.split(':').slice(1).join(':')}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="bg-green-100 border-l-4 border-green-600 px-4 py-2 rounded-r-lg">
+                      <span className="font-bold text-green-800">📊 {task.metric}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-5">
+                <h4 className="font-bold text-lg mb-3">Monthly Budget Breakdown (Months 1-3)</h4>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold">{businessPlan.executionPlan.month1to3.budget.marketing}</div>
+                    <div className="text-sm opacity-90">Marketing</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">{businessPlan.executionPlan.month1to3.budget.operations}</div>
+                    <div className="text-sm opacity-90">Operations</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">{businessPlan.executionPlan.month1to3.budget.inventory}</div>
+                    <div className="text-sm opacity-90">Inventory</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Months 4-12: Growth Phase */}
+            <div className="bg-white rounded-xl p-6 mb-6 shadow-md">
+              <h3 className="text-2xl font-bold text-green-600 mb-2 flex items-center">
+                <span className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm">3</span>
+                {businessPlan.executionPlan.month4to12.title}
+              </h3>
+              <p className="text-lg font-semibold text-gray-700 mb-4">🎯 Goal: {businessPlan.executionPlan.month4to12.goals}</p>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                {businessPlan.executionPlan.month4to12.quarterly.map((q: any, i: number) => (
+                  <div key={i} className="border-2 border-green-200 rounded-lg p-5 bg-gradient-to-br from-green-50 to-white">
+                    <h4 className="font-bold text-green-900 mb-2 text-lg">{q.quarter}</h4>
+                    <p className="text-sm font-semibold text-green-700 mb-3">Focus: {q.focus}</p>
+                    <ul className="space-y-2 mb-4">
+                      {q.actions.map((action: string, j: number) => (
+                        <li key={j} className="text-xs text-gray-700 flex items-start">
+                          <span className="text-green-600 mr-1">→</span>
+                          <span>{action}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="bg-green-600 text-white px-3 py-2 rounded-lg text-center text-sm font-semibold">
+                      {q.targets}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Years 2-3: Scaling Phase */}
+            <div className="bg-white rounded-xl p-6 shadow-md">
+              <h3 className="text-2xl font-bold text-orange-600 mb-4 flex items-center">
+                <span className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm">4</span>
+                {businessPlan.executionPlan.year2to3.title}
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="border-2 border-orange-200 rounded-lg p-5 bg-orange-50">
+                  <h4 className="font-bold text-orange-900 mb-2 text-xl">Year 2</h4>
+                  <p className="text-sm font-semibold text-orange-700 mb-3">🎯 {businessPlan.executionPlan.year2to3.year2.goals}</p>
+                  <ul className="space-y-2">
+                    {businessPlan.executionPlan.year2to3.year2.priorities.map((priority: string, j: number) => (
+                      <li key={j} className="text-sm text-gray-700 flex items-start">
+                        <span className="text-orange-600 mr-2 font-bold">▸</span>
+                        <span>{priority}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="border-2 border-red-200 rounded-lg p-5 bg-red-50">
+                  <h4 className="font-bold text-red-900 mb-2 text-xl">Year 3</h4>
+                  <p className="text-sm font-semibold text-red-700 mb-3">🎯 {businessPlan.executionPlan.year2to3.year3.goals}</p>
+                  <ul className="space-y-2">
+                    {businessPlan.executionPlan.year2to3.year3.priorities.map((priority: string, j: number) => (
+                      <li key={j} className="text-sm text-gray-700 flex items-start">
+                        <span className="text-red-600 mr-2 font-bold">▸</span>
+                        <span>{priority}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Tips */}
+            <div className="bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl p-6 mt-6 text-gray-900">
+              <h4 className="font-bold text-xl mb-3 flex items-center">
+                <span className="mr-2">💡</span>
+                Keys to Execution Success
+              </h4>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">✓</span>
+                  <span><strong>Track daily:</strong> Review metrics every morning, adjust strategy every Friday</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">✓</span>
+                  <span><strong>Focus on revenue:</strong> Always prioritize activities that directly generate sales</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">✓</span>
+                  <span><strong>Test & iterate:</strong> Try new tactics weekly, double down on what works</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">✓</span>
+                  <span><strong>Build systems:</strong> Document processes so you can delegate and scale</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">✓</span>
+                  <span><strong>Stay lean:</strong> Don't overspend early - prove the model first, then scale</span>
+                </li>
+              </ul>
             </div>
           </div>
 
