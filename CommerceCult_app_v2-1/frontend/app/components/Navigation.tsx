@@ -34,8 +34,8 @@ export default function Navigation() {
             <Link href="/features" className="text-gray-700 hover:text-blue-600 transition">
               Features
             </Link>
-            <Link href="/marketplace" className="text-gray-700 hover:text-blue-600 transition">
-              Marketplace
+            <Link href="/marketplace" className="text-gray-700 hover:text-amber-600 transition">
+              🐝 Bee Spoke
             </Link>
             <Link href="/pricing" className="text-gray-700 hover:text-green-600 transition font-semibold">
               💰 Pricing

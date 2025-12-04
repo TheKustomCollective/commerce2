@@ -63,10 +63,16 @@ export default function MarketplacePage() {
     <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white mb-12">
+        <div className="bg-gradient-to-r from-amber-500 to-yellow-600 rounded-3xl p-12 text-white mb-12">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-4">B2B Wholesale Marketplace</h1>
-            <p className="text-2xl mb-8 opacity-90">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="text-7xl">🐝</div>
+              <div>
+                <h1 className="text-5xl font-bold mb-2">Bee Spoke Marketplace</h1>
+                <p className="text-lg opacity-90">Handpicked B2B Solutions for Your Business</p>
+              </div>
+            </div>
+            <p className="text-xl mb-8 opacity-90">
               Connect microbusinesses with enterprise buyers. Sell products, services, and innovative ideas at scale.
             </p>
             <div className="flex gap-4">

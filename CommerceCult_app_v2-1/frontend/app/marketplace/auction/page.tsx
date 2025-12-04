@@ -33,7 +33,7 @@ export default function InstantAuctionPage() {
       bidCount: 12,
       timeRemaining: 3600,
       seller: 'TechVentures LLC',
-      imageUrl: 'https://via.placeholder.com/400x300/6366f1/ffffff?text=E-commerce+Pack'
+      imageUrl: 'https://via.placeholder.com/400x300/f59e0b/ffffff?text=🐝+E-commerce+Pack'
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ export default function InstantAuctionPage() {
       bidCount: 8,
       timeRemaining: 7200,
       seller: 'Digital Ventures',
-      imageUrl: 'https://via.placeholder.com/400x300/8b5cf6/ffffff?text=SaaS+Product'
+      imageUrl: 'https://via.placeholder.com/400x300/f59e0b/ffffff?text=🐝+SaaS+Product'
     }
   ]);
 
@@ -159,9 +159,12 @@ export default function InstantAuctionPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            ⚡ Instant Auctions with Reserve
-          </h1>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-6xl">🐝</span>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+              Bee Spoke Instant Auctions
+            </h1>
+          </div>
           <p className="text-xl text-gray-600 mb-8">
             Buy and sell businesses, assets, and services with transparent reserve pricing
           </p>

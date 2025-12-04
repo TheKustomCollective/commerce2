@@ -66,7 +66,10 @@ export default function BuyerDashboardPage() {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-4xl font-bold mb-2">Buyer Dashboard</h1>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-5xl">🐝</span>
+              <h1 className="text-4xl font-bold">Bee Spoke Buyer Dashboard</h1>
+            </div>
             <p className="text-gray-600">Manage vendors, quotes, and orders</p>
           </div>
           <Link

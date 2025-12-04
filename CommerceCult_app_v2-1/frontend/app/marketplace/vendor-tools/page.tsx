@@ -111,9 +111,12 @@ export default function VendorToolsSuitePage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            🛠️ Vendor Tools Suite
-          </h1>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-6xl">🐝</span>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+              Bee Spoke Vendor Tools
+            </h1>
+          </div>
           <p className="text-xl text-gray-600 mb-6">
             Everything you need to run your wholesale business
           </p>
