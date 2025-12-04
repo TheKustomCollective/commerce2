@@ -75,6 +75,24 @@ export default function VendorDashboardPage() {
           <StatCard icon="💰" label="Total Revenue" value="$20,650" color="green" />
         </div>
 
+        {/* Vendor Tools Suite Banner */}
+        <div className="mb-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-3xl font-bold mb-2">🛠️ Access Your Vendor Tools Suite</h3>
+              <p className="text-lg opacity-90">
+                Shopping cart, payment processors, integrations with Mailchimp, QuickBooks & more
+              </p>
+            </div>
+            <Link
+              href="/marketplace/vendor-tools"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition whitespace-nowrap"
+            >
+              Open Tools →
+            </Link>
+          </div>
+        </div>
+
         {/* Active Listings */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold mb-6">Your Listings</h2>
