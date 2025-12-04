@@ -50,11 +50,12 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-12 aspect-square flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-7xl mb-4">🚀</div>
-              <p className="text-2xl font-bold text-gray-800">Building the future<br />of entrepreneurship</p>
-            </div>
+          <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop" 
+              alt="Team collaboration and business growth"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>

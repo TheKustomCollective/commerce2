@@ -15,6 +15,15 @@ export default function ZeroDollarMarketingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Hero Image */}
+          <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop" 
+              alt="Digital Marketing Strategy"
+              className="w-full h-64 object-cover"
+            />
+          </div>
+
           <div className="text-6xl mb-6">💚</div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Zero-Dollar Marketing Strategy

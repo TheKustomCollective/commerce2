@@ -192,14 +192,19 @@ function FeatureSection({
           {cta.text} →
         </Link>
       </div>
-      <div className="flex-1">
-        <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 aspect-square flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-8xl mb-4">{icon}</div>
-            <p className="text-gray-600">Visual preview coming soon</p>
-          </div>
-        </div>
-      </div>
+      <div className=\"flex-1\">\n        <div className=\"rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-200\">\n          <img \n            src={`https://images.unsplash.com/photo-${getFeatureImage(icon)}?w=800&auto=format&fit=crop`}\n            alt={title}\n            className=\"w-full h-full object-cover\"\n          />\n        </div>\n      </div>
     </div>
   )
+}
+
+function getFeatureImage(icon: string): string {
+  const imageMap: Record<string, string> = {
+    '🧠': '1454165804606-c7d011fe7c0c',  // Business planning
+    '📊': '1551288049-bcd2e75ba-0ea',  // Analytics/charts
+    '🌐': '1467232004-926a4e71-60cf',  // Website/computer
+    '💰': '1579621970563-ebec7560ff3e',  // Money/finance
+    '🧮': '1554224154-26032ffc0d07',  // Calculator
+    '📝': '1450101499548-bdc2aa38cab2',  // Documents/notes
+  };
+  return imageMap[icon] || '1454165804606-c7d011fe7c0c';
 }
