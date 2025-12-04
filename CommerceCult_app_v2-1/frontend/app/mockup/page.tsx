@@ -279,6 +279,63 @@ export default function MockupGeneratorPage() {
   };
 
   return (
+    <div className=\"pt-20 pb-12 px-4 bg-gradient-to-br from-cyan-900 via-black to-blue-900\">
+      {/* Back Link */}
+      <div className=\"max-w-7xl mx-auto mb-4\">
+        <Link href=\"/\" className=\"inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold\">
+          ← Back to Home
+        </Link>
+      </div>
+
+      <div className=\"max-w-6xl mx-auto\">
+        {/* Hero Image */}
+        <div className=\"mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-500/30\">
+          <img 
+            src=\"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&auto=format&fit=crop\" 
+            alt=\"Product Mockup Design\"
+            className=\"w-full h-64 object-cover\"
+          />
+        </div>
+
+        {/* Header */}
+        <div className=\"text-center mb-12\">
+          <div className=\"text-7xl mb-6\">🎨</div>
+          <h1 className=\"text-5xl md:text-6xl font-bold text-white mb-4\">
+            AI Product Mockup Generator
+          </h1>
+          <p className=\"text-2xl text-cyan-300 mb-2\">
+            Professional Product Visualizations in Seconds
+          </p>
+          <p className=\"text-lg text-gray-400 max-w-3xl mx-auto mb-8\">
+            Create stunning mockups for products, websites, apps, packaging, and more.
+            Upload in bulk or create one at a time.
+          </p>
+
+          {/* Mode Toggle */}
+          <div className=\"inline-flex rounded-xl border-2 border-cyan-500/50 p-1 bg-black/50\">
+            <button
+              onClick={() => setMode('single')}
+              className={`px-6 py-2 rounded-lg font-semibold transition ${
+                mode === 'single'
+                  ? 'bg-cyan-600 text-white'
+                  : 'text-cyan-300 hover:text-white'
+              }`}
+            >
+              Single Product
+            </button>
+            <button
+              onClick={() => setMode('bulk')}
+              className={`px-6 py-2 rounded-lg font-semibold transition ${
+                mode === 'bulk'
+                  ? 'bg-cyan-600 text-white'
+                  : 'text-cyan-300 hover:text-white'
+              }`}
+            >
+              Bulk Upload
+            </button>
+          </div>
+        </div>
+
         {/* Step 1: Bulk Upload */}
         {step === 1 && mode === 'bulk' && (
           <div className="bg-white rounded-2xl shadow-xl p-8">

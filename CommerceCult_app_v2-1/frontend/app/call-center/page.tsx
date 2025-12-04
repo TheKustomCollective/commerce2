@@ -173,8 +173,17 @@ export default function CallCenterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
+    <div className=" bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
+        {/* Hero Image */}
+        <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl">
+          <img 
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&auto=format&fit=crop" 
+            alt="AI Call Center Technology"
+            className="w-full h-64 object-cover"
+          />
+        </div>
+
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">

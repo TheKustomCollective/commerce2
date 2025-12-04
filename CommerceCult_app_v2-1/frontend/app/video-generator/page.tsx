@@ -35,7 +35,7 @@ export default function VideoGeneratorPage() {
   }
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 bg-gradient-to-br from-purple-900 via-black to-blue-900">
+    <div className="pt-20 pb-12 px-4 bg-gradient-to-br from-purple-900 via-black to-blue-900">
       {/* Back Link */}
       <div className="max-w-7xl mx-auto mb-4">
         <Link href="/" className="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold">
@@ -44,6 +44,15 @@ export default function VideoGeneratorPage() {
       </div>
 
       <div className="max-w-6xl mx-auto">
+        {/* Hero Image */}
+        <div className="mb-8 rounded-2xl overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=400&fit=crop" 
+            alt="Video Production Studio"
+            className="w-full h-64 object-cover"
+          />
+        </div>
+
         {/* Header */}
         <div className="text-center mb-12">
           <div className="text-7xl mb-6">🎬</div>

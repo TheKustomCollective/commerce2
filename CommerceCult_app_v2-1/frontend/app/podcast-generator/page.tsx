@@ -238,7 +238,7 @@ TRACKING:
 
   if (step === 3 && podcastScript) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8">
+      <main className=" bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8">
         <div className="max-w-6xl mx-auto">
           <Link href="/podcast-generator" onClick={() => setStep(1)} className="text-blue-400 hover:text-blue-300 mb-6 inline-block">
             ← Generate Another Podcast
@@ -327,8 +327,16 @@ TRACKING:
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8">
+    <main className=" bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8">
       <div className="max-w-4xl mx-auto">
+        {/* Hero Image */}
+        <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-purple-500/30">
+          <img 
+            src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=1200&auto=format&fit=crop" 
+            alt="Podcast Studio Setup"
+            className="w-full h-64 object-cover"
+          />
+        </div>
         <Link href="/dashboard" className="text-blue-400 hover:text-blue-300 mb-6 inline-block">
           ← Back to Dashboard
         </Link>
