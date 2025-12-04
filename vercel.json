@@ -2,5 +2,6 @@
   "buildCommand": "cd CommerceCult_app_v2-1/frontend && npm run build",
   "outputDirectory": "CommerceCult_app_v2-1/frontend/.next",
   "framework": "nextjs",
-  "installCommand": "cd CommerceCult_app_v2-1/frontend && npm install"
+  "installCommand": "cd CommerceCult_app_v2-1/frontend && npm install",
+  "ignoreCommand": "bash -c 'git diff --quiet HEAD^ HEAD -- CommerceCult_app_v2-1/frontend || exit 1'"
 }

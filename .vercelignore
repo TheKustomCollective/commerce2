@@ -1,0 +1,13 @@
+# Documentation files that don't affect the app
+*.md
+!README.md
+
+# Bot/automation scripts (separate from main app)
+bot/
+LivingLegacy/
+
+# Git and GitHub files
+.git
+.github
+
+# Only deploy when frontend changes
