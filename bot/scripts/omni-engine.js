@@ -3,18 +3,34 @@
 /**
  * Omni - Advanced AI Marketing Intelligence Engine
  * The most sophisticated marketing bot ever created
+ * Now with 24-hour knowledge base sync and ChatGPT integration
  */
 
 const fs = require('fs');
 const path = require('path');
+const { KnowledgeBaseUpdater } = require('./knowledge-updater');
 
 class OmniBot {
   constructor() {
     this.learningData = this.loadLearningData();
+    this.knowledgeBase = this.loadKnowledgeBase();
     this.competitorIntel = {};
     this.trendPredictions = {};
     this.performanceMetrics = {};
     this.audienceInsights = {};
+    this.chatGPTEnabled = !!process.env.OPENAI_API_KEY;
+  }
+
+  // Load enhanced knowledge base
+  loadKnowledgeBase() {
+    const kbFile = path.join(__dirname, '../data/knowledge-base.json');
+    if (fs.existsSync(kbFile)) {
+      const kb = JSON.parse(fs.readFileSync(kbFile, 'utf8'));
+      console.log(`📚 Knowledge Base loaded: Version ${kb.version}, Last updated ${kb.lastUpdated || 'Never'}`);
+      return kb;
+    }
+    console.log('⚠️  No knowledge base found. Run knowledge-updater.js first.');
+    return null;
   }
 
   // Load historical learning data
@@ -40,34 +56,52 @@ class OmniBot {
     fs.writeFileSync(dataFile, JSON.stringify(this.learningData, null, 2));
   }
 
-  // Predict trending topics using pattern analysis
+  // Predict trending topics using enhanced knowledge base
   async predictTrends() {
     console.log('🔮 Analyzing market patterns and predicting trends...');
     
-    const trendSignals = [
-      { topic: 'AI automation for small business', momentum: 85, timeToPeak: '36 hours' },
-      { topic: 'No-code business tools', momentum: 72, timeToPeak: '48 hours' },
-      { topic: 'Solopreneur revolution', momentum: 68, timeToPeak: '24 hours' },
-      { topic: 'AI-powered market research', momentum: 91, timeToPeak: '12 hours' },
-      { topic: 'Startup funding alternatives', momentum: 77, timeTopeak: '72 hours' },
-    ];
+    // Use knowledge base if available
+    if (this.knowledgeBase && this.knowledgeBase.industryTrends) {
+      console.log('   📊 Using enhanced knowledge base for predictions');
+      const trends = this.knowledgeBase.industryTrends.map(t => ({
+        topic: t.topic,
+        momentum: t.momentum,
+        timeToPeak: t.peakTime,
+        sources: t.sources.join(', '),
+        keywords: t.keywords,
+      }));
+      
+      this.trendPredictions = trends;
+      console.log('\n🚀 Trending Topics from Knowledge Base:');
+      trends.slice(0, 3).forEach(trend => {
+        console.log(`  📈 ${trend.topic} (${trend.momentum}% momentum, peaks in ${trend.timeToPeak})`);
+        console.log(`     Sources: ${trend.sources}`);
+      });
+      return trends;
+    }
     
-    // Identify high-momentum trends
-    const emergingTrends = trendSignals.filter(t => t.momentum > 75);
-    
-    console.log('\n🚀 Emerging Trends Detected:');
-    emergingTrends.forEach(trend => {
-      console.log(`  📈 ${trend.topic} (${trend.momentum}% momentum, peaks in ${trend.timeToPeak})`);
-    });
-    
-    this.trendPredictions = emergingTrends;
-    return emergingTrends;
-  }
-
-  // Analyze competitor activity and identify opportunities
+  // Analyze competitor activity using enhanced intelligence
   async analyzeCompetitors() {
     console.log('\n🎯 Scanning competitive landscape...');
     
+    // Use knowledge base if available
+    if (this.knowledgeBase && this.knowledgeBase.competitorData) {
+      console.log('   🔍 Using enhanced competitive intelligence');
+      const compData = this.knowledgeBase.competitorData;
+      
+      console.log('\n🔍 Competitive Intelligence:');
+      Object.entries(compData).forEach(([category, data]) => {
+        console.log(`\n  📊 ${category}:`);
+        console.log(`     Competitors: ${data.competitors.join(', ')}`);
+        console.log(`     Key Weaknesses: ${data.weaknesses.slice(0, 2).join(', ')}`);
+        console.log(`     💡 Top Opportunity: ${data.opportunities[0]}`);
+      });
+      
+      this.competitorIntel = compData;
+      return compData;
+    }
+    
+    // Fallback to original logic
     const competitors = [
       { name: 'CompetitorA', lastPost: '2 hours ago', engagement: 'low', strategy: 'generic' },
       { name: 'CompetitorB', lastPost: '1 day ago', engagement: 'medium', strategy: 'inconsistent' },
@@ -80,6 +114,42 @@ class OmniBot {
       
       // Identify gaps we can exploit
       if (comp.engagement === 'low') {
+        console.log(`     💡 Opportunity: Outperform ${comp.name} with superior content quality`);
+      }
+      if (comp.strategy === 'inconsistent') {
+        console.log(`     💡 Opportunity: Win their audience with consistent posting`);
+      }
+    });
+    
+    this.competitorIntel = competitors;
+    return competitors;
+  } const competitors = [
+      { name: 'CompetitorA', lastPost: '2 hours ago', engagement: 'low', strategy: 'generic' },
+      { name: 'CompetitorB', lastPost: '1 day ago', engagement: 'medium', strategy: 'inconsistent' },
+      { name: 'CompetitorC', lastPost: '4 hours ago', engagement: 'high', strategy: 'aggressive' },
+    ];
+  // Generate content with ChatGPT-powered use cases
+  async generateIntelligentContent(topic, platform, audience) {
+    console.log(`\n✍️  Generating AI-optimized content for ${platform}...`);
+    
+    // Check if we have enhanced product knowledge
+    let useCase = null;
+    if (this.knowledgeBase && this.knowledgeBase.productUseCases) {
+      // Find relevant product and use case
+      const products = Object.values(this.knowledgeBase.productUseCases);
+      const relevantProduct = products[Math.floor(Math.random() * products.length)];
+      useCase = relevantProduct?.useCases?.[Math.floor(Math.random() * relevantProduct.useCases.length)];
+      
+      if (useCase) {
+        console.log(`   🎯 Using ChatGPT-generated use case for ${relevantProduct.productName}`);
+        console.log(`   👤 Persona: ${useCase.persona}`);
+        console.log(`   💡 Angle: ${useCase.marketingAngle}`);
+      }
+    }
+    
+    // Analyze what's worked before
+    const historicalBest = this.learningData.bestPerformingContent
+      .filter(c => c.platform === platform)
         console.log(`     💡 Opportunity: Outperform ${comp.name} with superior content quality`);
       }
       if (comp.strategy === 'inconsistent') {
