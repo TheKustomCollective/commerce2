@@ -52,7 +52,7 @@ export default function Footer() {
             <span className="text-gray-600">•</span>
             <Link href="/privacy" className="hover:text-white transition text-xs">Privacy</Link>
             <span className="text-gray-600">•</span>
-            <span className="text-xs text-gray-500">🔒 We don't store personally identifying data</span>
+            <span className="text-xs text-gray-500">📊 Data-driven marketing for quality clientele</span>
           </div>
         </div>
       </div>

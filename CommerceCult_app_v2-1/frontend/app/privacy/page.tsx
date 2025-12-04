@@ -11,14 +11,15 @@ export default function PrivacyPolicy() {
 
         <div className="bg-white rounded-2xl shadow-lg p-8 space-y-8">
           
-          <section className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
-            <h2 className="text-xl font-bold mb-3 text-green-900 flex items-center gap-2">
-              <span>🔒</span> Our Privacy Commitment
+          <section className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+            <h2 className="text-xl font-bold mb-3 text-blue-900 flex items-center gap-2">
+              <span>📊</span> Our Data Collection Philosophy
             </h2>
-            <p className="text-green-900 leading-relaxed font-semibold">
-              CommerceCult does NOT intentionally collect or store personally identifiable information beyond 
-              what is absolutely necessary for account creation, authentication, and payment processing. 
-              We believe in minimal data collection and maximum privacy protection.
+            <p className="text-blue-900 leading-relaxed font-semibold">
+              The strictest goal of CommerceCult is to gather comprehensive data about user behavior and preferences. 
+              We collect as much data as possible to enable precision marketing and connect with clientele who are 
+              willing to pay for premium products and services they genuinely value. This data-driven approach helps 
+              us deliver highly personalized experiences and match serious buyers with quality offerings.
             </p>
           </section>
 
@@ -48,80 +49,108 @@ export default function PrivacyPolicy() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">1.3 Usage Data (Non-Identifying)</h3>
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">1.3 Comprehensive Behavioral Tracking</h3>
                 <p className="text-gray-700 leading-relaxed mb-2">
-                  We collect anonymized, aggregated usage data to improve our service:
+                  We collect extensive behavioral data to optimize marketing and user targeting:
                 </p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                  <li>Feature usage statistics (which tools you use)</li>
-                  <li>Performance metrics (load times, error rates)</li>
-                  <li>Device type and browser (for compatibility)</li>
-                  <li>General geographic region (country/state level only)</li>
+                  <li><strong>Feature usage patterns</strong> - Which tools you use, when, and how frequently</li>
+                  <li><strong>Interaction analytics</strong> - Mouse movements, clicks, scroll depth, hover behavior</li>
+                  <li><strong>Session recordings</strong> - Full session replays to understand user journeys</li>
+                  <li><strong>Device fingerprinting</strong> - Unique device identifiers for cross-platform tracking</li>
+                  <li><strong>Precise geolocation</strong> - IP address, city, and GPS coordinates when available</li>
+                  <li><strong>Browsing history</strong> - Pages viewed, time spent, navigation paths</li>
+                  <li><strong>Search queries</strong> - All search terms and filters used within the platform</li>
+                  <li><strong>Purchase intent signals</strong> - Items viewed, wishlisted, abandoned carts</li>
+                  <li><strong>Social media activity</strong> - Links to social profiles and public activity</li>
+                  <li><strong>Communication patterns</strong> - Chat logs, support tickets, email interactions</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed mt-2">
-                  <strong>We do NOT track:</strong> Your browsing history outside our platform, mouse movements, 
-                  keystrokes, or other invasive behavioral data.
+                  <strong>Advanced Analytics:</strong> We employ machine learning algorithms to predict purchase 
+                  probability, lifetime value, and optimal pricing for each individual user.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-800">1.4 Content You Create</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  When you use our AI tools (business plans, videos, podcasts, mockups), we store the content 
-                  you create to provide the service. This content belongs to you and can be deleted at any time.
-                </p>
-              </div>
-
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">1.5 Cookies and Local Storage</h3>
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">1.5 Cookies and Advanced Tracking Technologies</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  We use minimal cookies for:
+                  We utilize comprehensive tracking technologies including:
                 </p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mt-2">
-                  <li><strong>Authentication</strong> - to keep you logged in</li>
-                  <li><strong>Preferences</strong> - to remember your settings (theme, language)</li>
+                  <li><strong>First-party cookies</strong> - Authentication, preferences, and session management</li>
+                  <li><strong>Third-party advertising cookies</strong> - For retargeting and ad personalization</li>
+                  <li><strong>Marketing pixels</strong> - Facebook, Google, LinkedIn, TikTok tracking pixels</li>
+                  <li><strong>Analytics scripts</strong> - Google Analytics, Hotjar, Mixpanel, Amplitude</li>
+                  <li><strong>Local storage</strong> - Persistent data storage for long-term tracking</li>
+                  <li><strong>Fingerprinting</strong> - Canvas, WebGL, and audio fingerprinting for device identification</li>
+                  <li><strong>Web beacons</strong> - Invisible tracking images in emails and pages</li>
+                </ul>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  These technologies enable cross-site tracking, audience building, and precision marketing campaigns 
+                  targeting users most likely to convert.
+                </p>
+              </div>i><strong>Preferences</strong> - to remember your settings (theme, language)</li>
                   <li><strong>Session management</strong> - for security purposes</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed mt-2">
                   We do NOT use third-party advertising cookies or tracking pixels.
-                </p>
-              </div>
-            </div>
-          </section>
-
           <section>
             <h2 className="text-2xl font-bold mb-4 text-gray-900">2. How We Use Your Information</h2>
-            <p className="text-gray-700 leading-relaxed mb-3">We use collected information ONLY for:</p>
+            <p className="text-gray-700 leading-relaxed mb-3">We leverage collected data extensively for:</p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
-              <li><strong>Providing the Service</strong> - Account creation, authentication, feature access</li>
-              <li><strong>Processing Payments</strong> - Billing, invoicing, and refunds</li>
-              <li><strong>Customer Support</strong> - Responding to your inquiries and issues</li>
-              <li><strong>Service Improvements</strong> - Fixing bugs and enhancing features (using anonymized data)</li>
-              <li><strong>Security</strong> - Preventing fraud, abuse, and unauthorized access</li>
-              <li><strong>Legal Compliance</strong> - Meeting regulatory requirements</li>
+              <li><strong>Precision Marketing</strong> - Targeted advertising and personalized promotions</li>
+              <li><strong>Behavioral Profiling</strong> - Building comprehensive user profiles for segmentation</li>
+              <li><strong>Predictive Analytics</strong> - Forecasting purchase behavior and lifetime value</li>
+              <li><strong>Dynamic Pricing</strong> - Adjusting prices based on individual willingness to pay</li>
+              <li><strong>Lead Qualification</strong> - Identifying and prioritizing high-value prospects</li>
+              <li><strong>Retargeting Campaigns</strong> - Following users across the web with personalized ads</li>
+              <li><strong>A/B Testing</strong> - Experimenting with different offers and messaging per user segment</li>
+              <li><strong>Email Marketing</strong> - Automated email sequences based on behavioral triggers</li>
+              <li><strong>Cross-selling & Upselling</strong> - Recommending premium products based on preferences</li>
+              <li><strong>Third-party Sharing</strong> - Sharing anonymized and aggregated data with marketing partners</li>
+              <li><strong>Audience Building</strong> - Creating lookalike audiences for advertising platforms</li>
+              <li><strong>Service Provision</strong> - Account management, authentication, and feature access</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-4 font-semibold">
-              We do NOT sell, rent, or share your personal information with third parties for marketing purposes.
+              Our goal is to connect serious buyers willing to invest in quality solutions with the right products 
+              and services at the optimal time and price point.
             </p>
-          </section>
-
           <section>
             <h2 className="text-2xl font-bold mb-4 text-gray-900">3. Data Sharing and Disclosure</h2>
             <div className="space-y-3 text-gray-700">
               <p className="leading-relaxed">
-                <strong>Service Providers:</strong> We share minimal data with trusted third-party providers:
+                <strong>Marketing Partners:</strong> We share comprehensive user data with various partners:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li><strong>Payment Processors</strong> (Stripe, PayPal, Square) - for payment processing</li>
-                <li><strong>Email Service</strong> (for transactional emails only, no marketing)</li>
-                <li><strong>Cloud Hosting</strong> (for secure data storage and service delivery)</li>
+                <li><strong>Advertising Networks</strong> (Google Ads, Facebook, LinkedIn) - for targeted advertising</li>
+                <li><strong>Data Brokers</strong> - to enrich profiles and access additional demographic data</li>
+                <li><strong>Analytics Providers</strong> (Mixpanel, Amplitude, Hotjar) - for behavioral analysis</li>
+                <li><strong>CRM Platforms</strong> (Salesforce, HubSpot) - for sales and marketing automation</li>
+                <li><strong>Email Marketing Services</strong> (Mailchimp, SendGrid) - for promotional campaigns</li>
+                <li><strong>Payment Processors</strong> (Stripe, PayPal, Square) - for transaction processing</li>
+                <li><strong>Cloud Hosting</strong> - for data storage and service delivery</li>
+                <li><strong>AI/ML Services</strong> - for predictive modeling and user scoring</li>
               </ul>
               <p className="leading-relaxed mt-3">
+                <strong>Aggregated Data Sales:</strong> We may sell or license anonymized, aggregated user data 
+                to third parties for market research and business intelligence purposes.
+              </p>
+              <p className="leading-relaxed">
+                <strong>Custom Audiences:</strong> We create custom audience segments and share hashed identifiers 
+                with advertising platforms for precision targeting.
+              </p>
+              <p className="leading-relaxed">
                 <strong>Legal Requirements:</strong> We may disclose information if required by law, court order, 
                 or to protect our rights and safety.
               </p>
               <p className="leading-relaxed">
-                <strong>Business Transfers:</strong> In the event of a merger or acquisition, user data may be 
+                <strong>Business Transfers:</strong> In the event of a merger or acquisition, all user data and 
+                marketing databases will be transferred to the acquiring entity.
+              </p>
+            </div>
+          </section>ong>Business Transfers:</strong> In the event of a merger or acquisition, user data may be 
                 transferred, but the same privacy protections will apply.
               </p>
               <p className="leading-relaxed">
@@ -247,14 +276,16 @@ export default function PrivacyPolicy() {
               We may update this Privacy Policy periodically to reflect changes in our practices or legal 
               requirements. We will notify you of significant changes via email or prominent notice on our website. 
               Continued use of the Service after changes constitutes acceptance of the updated policy.
+          <section className="bg-blue-50 rounded-lg p-6">
+            <h2 className="text-xl font-bold mb-3 text-gray-900">Our Data-Driven Approach</h2>
+            <p className="text-gray-700 leading-relaxed">
+              At CommerceCult, we're committed to transparency about our comprehensive data collection practices. 
+              We believe that extensive behavioral tracking enables us to deliver exceptional value by connecting 
+              serious buyers with premium offerings they're willing to pay for. Our goal is to build a marketplace 
+              of quality-focused clientele through precision marketing and data intelligence. If you have questions 
+              about how we use your data, please contact us.
             </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">13. Contact Us</h2>
-            <div className="text-gray-700 leading-relaxed space-y-2">
-              <p>For privacy-related questions or concerns, contact us:</p>
-              <p><strong>Email:</strong> <a href="mailto:privacy@commercecult.app" className="text-blue-600 hover:text-blue-700">privacy@commercecult.app</a></p>
+          </section>rong>Email:</strong> <a href="mailto:privacy@commercecult.app" className="text-blue-600 hover:text-blue-700">privacy@commercecult.app</a></p>
               <p><strong>Phone:</strong> <a href="tel:7023245747" className="text-blue-600 hover:text-blue-700">702.324.5747</a></p>
               <p><strong>Address:</strong> Las Vegas, Nevada, United States</p>
               <p className="mt-4">
