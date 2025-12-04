@@ -37,8 +37,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition">Pricing</Link></li>
+              <li><Link href="/about#contact" className="hover:text-white transition">Contact</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
               <li><Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
             </ul>
           </div>
@@ -46,6 +47,13 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
           <p>&copy; {new Date().getFullYear()} CommerceCult. All rights reserved.</p>
+          <div className="mt-2 space-x-4">
+            <Link href="/terms" className="hover:text-white transition text-xs">Terms</Link>
+            <span className="text-gray-600">•</span>
+            <Link href="/privacy" className="hover:text-white transition text-xs">Privacy</Link>
+            <span className="text-gray-600">•</span>
+            <span className="text-xs text-gray-500">🔒 We don't store personally identifying data</span>
+          </div>
         </div>
       </div>
     </footer>
