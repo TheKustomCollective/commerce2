@@ -1,6 +1,8 @@
 import './globals.css'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import RaphaelAssistant from './components/RaphaelAssistant'
+import LiveChat from './components/LiveChat'
 
 export const metadata = {
   title: 'CommerceCult - AI-Powered Business Intelligence',
@@ -20,6 +22,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <RaphaelAssistant />
+        <LiveChat />
       </body>
     </html>
   )

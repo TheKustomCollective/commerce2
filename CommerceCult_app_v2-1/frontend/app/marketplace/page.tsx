@@ -94,6 +94,22 @@ export default function MarketplacePage() {
           <StatCard icon="💰" label="Deals Closed" value="$12.4M" />
         </div>
 
+        {/* Quick Action - Instant Auction */}
+        <div className="mb-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-3xl font-bold mb-2">⚡ Try Instant Auctions</h3>
+              <p className="text-lg opacity-90">Buy and sell with transparent reserve pricing. Live bidding, instant results.</p>
+            </div>
+            <Link
+              href="/marketplace/auction"
+              className="bg-white text-pink-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition whitespace-nowrap"
+            >
+              View Auctions →
+            </Link>
+          </div>
+        </div>
+
         {/* Categories */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold mb-6">Browse by Category</h2>
