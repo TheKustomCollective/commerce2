@@ -135,6 +135,107 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12">Get In Touch</h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            
+            {/* Contact Form */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Name *</label>
+                  <input 
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Email *</label>
+                  <input 
+                    type="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Subject *</label>
+                  <input 
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="How can we help?"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Message *</label>
+                  <textarea 
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Tell us more..."
+                  />
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">📞</div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Phone</h4>
+                    <a href="tel:7032457477" className="text-blue-600 hover:text-blue-700 text-lg font-semibold">
+                      703.245.7477
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">📧</div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Email</h4>
+                    <a href="mailto:support@commercecult.app" className="text-blue-600 hover:text-blue-700">
+                      support@commercecult.app
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">🏢</div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Location</h4>
+                    <p className="text-gray-600">Las Vegas, Nevada</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">⏰</div>
+                  <div>
+                    <h4 className="font-semibold mb-1">Support Hours</h4>
+                    <ul className="text-gray-600 space-y-1">
+                      <li>Monday - Friday: 9am - 6pm PST</li>
+                      <li>Saturday: 10am - 4pm PST</li>
+                      <li>Sunday: Closed</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

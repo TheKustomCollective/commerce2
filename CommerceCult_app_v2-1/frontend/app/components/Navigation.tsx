@@ -11,9 +11,25 @@ export default function Navigation() {
             </div>
           </Link>
           
+          <div className="absolute left-1/2 transform -translate-x-1/2 text-sm text-gray-600">
+            📞 <a href="tel:7032457477" className="hover:text-blue-600 font-semibold">703.245.7477</a>
+          </div>
+          
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/video-generator" className="text-gray-700 hover:text-blue-600 transition">
               🎬 AI Video
+            </Link>
+            <Link href="/podcast-generator" className="text-gray-700 hover:text-purple-600 transition">
+              🎙️ Podcast
+            </Link>
+            <Link href="/mockup" className="text-gray-700 hover:text-purple-600 transition">
+              🎨 Mockup
+            </Link>
+            <Link href="/call-center" className="text-gray-700 hover:text-blue-600 transition">
+              📞 Call Center
+            </Link>
+            <Link href="/toolbox" className="text-gray-700 hover:text-indigo-600 transition">
+              🧰 Toolbox
             </Link>
             <Link href="/features" className="text-gray-700 hover:text-blue-600 transition">
               Features
@@ -30,12 +46,15 @@ export default function Navigation() {
             <Link href="/calculators" className="text-gray-700 hover:text-blue-600 transition">
               Calculators
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
-              Contact
-            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
+            <Link 
+              href="/about#contact" 
+              className="text-blue-600 hover:text-blue-700 font-semibold transition"
+            >
+              Customer Support
+            </Link>
             <Link 
               href="/login" 
               className="text-gray-700 hover:text-blue-600 transition"
