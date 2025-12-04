@@ -12,7 +12,7 @@ export default function Navigation() {
           </Link>
           
           <div className="absolute left-1/2 transform -translate-x-1/2 text-sm text-gray-600">
-            📞 <a href="tel:7032457477" className="hover:text-blue-600 font-semibold">703.245.7477</a>
+            📞 <a href="tel:7023245747" className="hover:text-blue-600 font-semibold">702.324.5747</a>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
