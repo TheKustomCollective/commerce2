@@ -33,9 +33,15 @@ export default function GenerateBusinessPlanPage() {
   }
 
   const handleGenerate = async () => {
+    // Validate required fields
+    if (!formData.businessName || !formData.industry || !formData.businessType || !formData.location) {
+      alert('Please fill out all required fields (Business Name, Industry, Business Type, and Location)')
+      return
+    }
+
     setIsGenerating(true)
     
-    // Simulate AI generation (in production, this would call your AI API)
+    // Simulate AI generation with 2 second delay for better UX
     setTimeout(() => {
       const generatedPlan = {
         executiveSummary: {
@@ -454,7 +460,7 @@ export default function GenerateBusinessPlanPage() {
       setBusinessPlan(generatedPlan)
       setIsGenerating(false)
       setStep(3)
-    }, 3000)
+    }, 2000)
   }
 
   const formatCurrency = (value: number) => {
@@ -468,7 +474,7 @@ export default function GenerateBusinessPlanPage() {
 
   if (step === 3 && businessPlan) {
     return (
-      <div className=" pt-20 pb-12 px-4 bg-gray-50">
+      <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-8">
@@ -1106,7 +1112,7 @@ export default function GenerateBusinessPlanPage() {
 
   if (isGenerating) {
     return (
-      <div className=" pt-20 pb-12 px-4 bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50 flex items-center justify-center">
         <div className="text-center max-w-md">
           <div className="text-8xl mb-6 animate-bounce">🤖</div>
           <h2 className="text-3xl font-bold mb-4">Generating Your Business Plan...</h2>
@@ -1135,7 +1141,7 @@ export default function GenerateBusinessPlanPage() {
   }
 
   return (
-    <div className=" pt-20 pb-12 px-4 bg-gray-50">
+    <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-3">Generate Your Business Plan</h1>
