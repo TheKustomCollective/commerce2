@@ -15,7 +15,7 @@ export default function MarketplacePage() {
       category: 'Office Supplies',
       moq: '500 units',
       priceRange: '$8-12 per unit',
-      image: '🪵',
+      image: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=400&h=300&fit=crop',
       description: 'Premium handcrafted wooden desk organizers and accessories'
     },
     {
@@ -25,7 +25,7 @@ export default function MarketplacePage() {
       category: 'Packaging',
       moq: '10,000 units',
       priceRange: '$0.15-0.30 per unit',
-      image: '📦',
+      image: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=300&fit=crop',
       description: 'Sustainable packaging solution made from plant-based materials'
     },
     {
@@ -35,7 +35,7 @@ export default function MarketplacePage() {
       category: 'Marketing Services',
       moq: '1 campaign',
       priceRange: '$5,000-25,000',
-      image: '📱',
+      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
       description: 'Proven viral marketing strategy that generated 10M+ impressions'
     },
     {
@@ -45,7 +45,7 @@ export default function MarketplacePage() {
       category: 'Food & Beverage',
       moq: '5,000 units',
       priceRange: '$1.20-1.80 per unit',
-      image: '🍫',
+      image: 'https://images.unsplash.com/photo-1606312619070-d48b4cff3ac3?w=400&h=300&fit=crop',
       description: 'All-natural energy bars with unique flavor profiles'
     }
   ]
@@ -299,10 +299,16 @@ function StatCard({ icon, label, value }: { icon: string; label: string; value: 
 
 function ProductCard({ product }: { product: any }) {
   return (
-    <div className="bg-white rounded-2xl p-6 hover:shadow-xl transition">
-      <div className="flex gap-6">
-        <div className="text-6xl">{product.image}</div>
-        <div className="flex-1">
+    <div className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition">
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/3 h-48 md:h-auto">
+          <img 
+            src={product.image} 
+            alt={product.product}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex-1 p-6">
           <div className="text-sm text-blue-600 font-semibold mb-1">{product.category}</div>
           <h3 className="text-xl font-bold mb-2">{product.product}</h3>
           <p className="text-gray-600 text-sm mb-3">{product.description}</p>

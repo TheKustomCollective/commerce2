@@ -15,10 +15,13 @@
 
 html, body {
   width: 100%;
+  height: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  min-height: 100vh;
 }
