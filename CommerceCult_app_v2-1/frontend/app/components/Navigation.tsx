@@ -16,38 +16,20 @@ export default function Navigation() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/video-generator" className="text-gray-700 hover:text-blue-600 transition">
-              🎬 AI Video
+            <Link href="/marketplace" className="text-gray-700 hover:text-amber-600 transition font-semibold">
+              🐝 Marketplace
             </Link>
-            <Link href="/podcast-generator" className="text-gray-700 hover:text-purple-600 transition">
-              🎙️ Podcast
+            <Link href="/generate" className="text-gray-700 hover:text-blue-600 transition font-semibold">
+              💼 Business Tools
             </Link>
-            <Link href="/mockup" className="text-gray-700 hover:text-purple-600 transition">
-              🎨 Mockup
+            <Link href="/video-generator" className="text-gray-700 hover:text-purple-600 transition font-semibold">
+              🎨 Content Creation
             </Link>
-            <Link href="/call-center" className="text-gray-700 hover:text-blue-600 transition">
-              📞 Call Center
+            <Link href="/fundmystartup" className="text-gray-700 hover:text-green-600 transition font-semibold">
+              💰 Funding & Marketing
             </Link>
-            <Link href="/toolbox" className="text-gray-700 hover:text-indigo-600 transition">
-              🧰 Toolbox
-            </Link>
-            <Link href="/features" className="text-gray-700 hover:text-blue-600 transition">
-              Features
-            </Link>
-            <Link href="/marketplace" className="text-gray-700 hover:text-amber-600 transition">
-              🐝 Bee Spoke
-            </Link>
-            <Link href="/pricing" className="text-gray-700 hover:text-green-600 transition font-semibold">
-              💰 Pricing
-            </Link>
-            <Link href="/marketing" className="text-gray-700 hover:text-blue-600 transition">
-              $0 Marketing
-            </Link>
-            <Link href="/fundmystartup" className="text-gray-700 hover:text-blue-600 transition">
-              Funding
-            </Link>
-            <Link href="/calculators" className="text-gray-700 hover:text-blue-600 transition">
-              Calculators
+            <Link href="/pricing" className="text-gray-700 hover:text-blue-600 transition">
+              Pricing
             </Link>
           </div>
 
