@@ -26,7 +26,7 @@ export default function Navigation() {
               🎨 Content Creation
             </Link>
             <Link href="/fundmystartup" className="text-gray-700 hover:text-green-600 transition font-semibold">
-              💰 Funding & Marketing
+              💰 Funding
             </Link>
             <Link href="/pricing" className="text-gray-700 hover:text-blue-600 transition">
               Pricing
