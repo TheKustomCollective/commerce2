@@ -93,7 +93,7 @@ export default function RaphaelAssistant() {
     // Analyze tone from user's writing style
     const allUserMessages = messages.filter(m => m.sender === 'user').map(m => m.text).join(' ');
     const hasExclamation = allUserMessages.includes('!');
-    const hasEmoji = /[\u{1F300}-\u{1F9FF}]/u.test(allUserMessages);
+    const hasEmoji = /[\uD800-\uDFFF]/.test(allUserMessages);
     const shortResponses = messages.filter(m => m.sender === 'user').every(m => m.text.length < 30);
     
     let detectedTone: typeof userInfo.voiceTone = 'professional';

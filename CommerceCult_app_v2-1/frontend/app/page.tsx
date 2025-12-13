@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import GoogleAd from './components/GoogleAd';
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -105,6 +106,15 @@ export default function Home() {
       {/* Features Section */}
       <section className="relative z-10 py-20 px-8 bg-gray-900/90 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
+          {/* Top Banner Ad */}
+          <div className="mb-8 flex justify-center">
+            <GoogleAd 
+              slot="1234567890" 
+              format="horizontal"
+              style={{ display: 'block', width: '728px', height: '90px' }}
+            />
+          </div>
+
           <h2 className="text-4xl font-bold text-center mb-4 text-white">
             Everything You Need to Launch
           </h2>
@@ -168,6 +178,15 @@ export default function Home() {
       {/* CTA Section */}
       <section className="relative z-10 py-20 px-8 bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Square Ad */}
+          <div className="mb-8 flex justify-center">
+            <GoogleAd 
+              slot="9876543210" 
+              format="rectangle"
+              style={{ display: 'inline-block', width: '300px', height: '250px' }}
+            />
+          </div>
+
           <h2 className="text-4xl font-bold mb-4 text-white">
             Ready to Build Your Business?
           </h2>
