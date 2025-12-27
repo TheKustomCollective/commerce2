@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import FreeTrialBanner from '../../components/FreeTrialBanner'
 
 export default function ROICalculatorPage() {
   const [inputs, setInputs] = useState({
@@ -84,7 +85,9 @@ export default function ROICalculatorPage() {
   const assessment = getROIAssessment(results.roiPercentage)
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
+      <FreeTrialBanner />
+      <div className="pt-20 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">

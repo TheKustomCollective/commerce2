@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import FreeTrialBanner from '../components/FreeTrialBanner'
 
 export default function PodcastGeneratorPage() {
   const [step, setStep] = useState(1)
@@ -42,12 +43,32 @@ export default function PodcastGeneratorPage() {
     }
   }
 
-  const generatePodcast = () => {
+  const generatePodcast = async () => {
     setIsGenerating(true)
     
-    // Simulate AI generation
-    setTimeout(() => {
-      const guests = formData.specialGuests.map(type => {
+    try {
+      const response = await fetch('/api/generate-podcast', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate podcast')
+      }
+
+      const data = await response.json()
+      setPodcastScript(data.script)
+      setStep(3)
+    } catch (error) {
+      console.error('Error generating podcast:', error)
+      alert('Failed to generate podcast. Please try again.')
+    } finally {
+      setIsGenerating(false)
+    }
+  }
         const profiles: any = {
           'tech-entrepreneur': {
             name: 'Marcus Chen',
@@ -221,10 +242,14 @@ TRACKING:
         }
       }
 
-      setPodcastScript(generated)
-      setIsGenerating(false)
+      setPodcastScript(data.script)
       setStep(3)
-    }, 3000)
+    } catch (error) {
+      console.error('Error generating podcast:', error)
+      alert('Failed to generate podcast. Please try again.')
+    } finally {
+      setIsGenerating(false)
+    }
   }
 
   const guestOptions = [
@@ -327,7 +352,9 @@ TRACKING:
   }
 
   return (
-    <main className=" bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8">
+    <>
+      <FreeTrialBanner />
+      <main className=" bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-8 pt-20">
       <div className="max-w-4xl mx-auto">
         {/* Hero Image */}
         <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-purple-500/30">

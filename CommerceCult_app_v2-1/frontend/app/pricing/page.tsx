@@ -277,7 +277,7 @@ export default function PricingPage() {
             />
             <FAQ 
               question="Is there a free trial?"
-              answer="Professional and Business plans come with a 14-day free trial. No credit card required to start. Starter plan is free forever."
+              answer="Professional and Business plans come with a 60-day free trial. No credit card required to start. Starter plan is free forever."
             />
             <FAQ 
               question="What happens if I exceed my limits?"

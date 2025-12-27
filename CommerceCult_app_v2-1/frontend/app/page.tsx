@@ -54,10 +54,10 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen">
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
+        className="fixed inset-0 w-full h-full -z-10"
       />
       
       {/* Hero Section */}
@@ -160,6 +160,12 @@ export default function Home() {
               link="/calculators/roi"
             />
             <FeatureCard
+              icon="💰"
+              title="Tax Calculator"
+              description="Estimate your business taxes and plan your finances effectively"
+              link="/calculators/tax"
+            />
+            <FeatureCard
               icon="🌐"
               title="Free Hosting"
               description="Get your own subdomain and host unlimited pages for free"
@@ -197,9 +203,9 @@ export default function Home() {
             href="/signup"
             className="inline-block px-12 py-5 text-2xl font-bold text-black bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-300 hover:to-blue-300 rounded-lg shadow-[0_0_30px_rgba(0,255,0,0.6)] transition-all duration-300 transform hover:scale-105"
           >
-            Start Free Trial
+            Start 60-Day Free Trial
           </Link>
-          <p className="text-sm text-gray-400 mt-4">No credit card required • 14-day free trial</p>
+          <p className="text-sm text-gray-400 mt-4">No credit card required • Full 60-day free trial • Cancel anytime</p>
         </div>
       </section>
     </main>

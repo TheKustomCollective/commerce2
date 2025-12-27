@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import FreeTrialBanner from '../components/FreeTrialBanner'
 
 export default function VideoGeneratorPage() {
   const [prompt, setPrompt] = useState('')
@@ -20,12 +21,24 @@ export default function VideoGeneratorPage() {
     setVideoUrl('')
 
     try {
-      // TODO: Integrate with AI video generation API
-      // For now, simulate generation
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      
-      // Placeholder - will be replaced with actual API call
-      setVideoUrl('https://example.com/generated-video.mp4')
+      const response = await fetch('/api/generate-video', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt,
+          duration: 10,
+          style: 'professional'
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate video')
+      }
+
+      const data = await response.json()
+      setVideoUrl(data.videoUrl)
       
     } catch (err: any) {
       setError(err.message || 'Failed to generate video')
@@ -35,7 +48,9 @@ export default function VideoGeneratorPage() {
   }
 
   return (
-    <div className="pt-20 pb-12 px-4 bg-gradient-to-br from-purple-900 via-black to-blue-900">
+    <div className="bg-gradient-to-br from-purple-900 via-black to-blue-900">
+      <FreeTrialBanner />
+      <div className="pt-20 pb-12 px-4">
       {/* Back Link */}
       <div className="max-w-7xl mx-auto mb-4">
         <Link href="/" className="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold">

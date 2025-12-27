@@ -303,7 +303,7 @@ export default function SignupPage() {
                 <option value="enterprise">Enterprise - $199/month</option>
               </select>
               <p className="text-sm text-gray-500 mt-2">
-                Start with 14-day free trial. No credit card required.
+                Start with 60-day free trial. No credit card required.
               </p>
             </div>
 

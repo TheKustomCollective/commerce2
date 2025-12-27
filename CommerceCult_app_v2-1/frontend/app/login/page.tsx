@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 export default function LoginPage() {
+  const searchParams = useSearchParams()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,6 +15,22 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+
+  // Check for OAuth error messages in URL
+  useEffect(() => {
+    const error = searchParams.get('error')
+    const message = searchParams.get('message')
+    
+    if (error === 'oauth_not_configured') {
+      setErrors({ 
+        general: message || 'Google Sign-In is not configured yet. Please use email login or contact support.' 
+      })
+    } else if (error) {
+      setErrors({ 
+        general: `Login failed: ${error}. Please try again or use email login.` 
+      })
+    }
+  }, [searchParams])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import FreeTrialBanner from '../components/FreeTrialBanner'
 
 export default function GenerateBusinessPlanPage() {
   const [step, setStep] = useState(1)
@@ -41,9 +42,29 @@ export default function GenerateBusinessPlanPage() {
 
     setIsGenerating(true)
     
-    // Simulate AI generation with 2 second delay for better UX
-    setTimeout(() => {
-      const generatedPlan = {
+    try {
+      const response = await fetch('/api/generate-plan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate business plan')
+      }
+
+      const generatedPlan = await response.json()
+      setBusinessPlan(generatedPlan)
+      setStep(3)
+    } catch (error) {
+      console.error('Error generating business plan:', error)
+      alert('Failed to generate business plan. Please try again.')
+    } finally {
+      setIsGenerating(false)
+    }
+  }
         executiveSummary: {
           mission: `${formData.businessName} aims to revolutionize the ${formData.industry} industry by providing innovative solutions to ${formData.targetMarket}. Our unique value proposition combines quality, affordability, and exceptional customer service.`,
           vision: `To become the leading ${formData.businessType} in ${formData.location} within 5 years, serving over 10,000 customers and generating $5M+ in annual revenue.`,
@@ -458,9 +479,13 @@ export default function GenerateBusinessPlanPage() {
       }
       
       setBusinessPlan(generatedPlan)
-      setIsGenerating(false)
       setStep(3)
-    }, 2000)
+    } catch (error) {
+      console.error('Error generating business plan:', error)
+      alert('Failed to generate business plan. Please try again.')
+    } finally {
+      setIsGenerating(false)
+    }
   }
 
   const formatCurrency = (value: number) => {
@@ -1141,7 +1166,9 @@ export default function GenerateBusinessPlanPage() {
   }
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
+      <FreeTrialBanner />
+      <div className="pt-20 pb-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-3">Generate Your Business Plan</h1>
@@ -1387,6 +1414,7 @@ export default function GenerateBusinessPlanPage() {
         <div className="mt-8 text-center text-sm text-gray-600">
           <p>✨ Your business plan will include: Executive Summary, Market Analysis, Financial Projections, Marketing Strategy, and more!</p>
         </div>
+      </div>
       </div>
     </div>
   )
