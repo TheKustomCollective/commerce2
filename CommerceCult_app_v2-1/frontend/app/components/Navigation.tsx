@@ -28,6 +28,9 @@ export default function Navigation() {
             <Link href="/fundmystartup" className="text-gray-700 hover:text-green-600 transition font-semibold">
               💰 Funding
             </Link>
+            <Link href="/omni" className="text-gray-700 hover:text-indigo-600 transition font-semibold">
+              🤖 OMNI
+            </Link>
             <Link href="/pricing" className="text-gray-700 hover:text-blue-600 transition">
               Pricing
             </Link>
