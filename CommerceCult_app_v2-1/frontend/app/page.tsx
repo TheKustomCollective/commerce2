@@ -1,99 +1,85 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import GoogleAd from './components/GoogleAd';
 
 export default function Home() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const columns = Math.floor(canvas.width / 20);
-    const drops: number[] = Array(columns).fill(1);
-
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#0F0';
-      ctx.font = '15px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = Math.random() > 0.5 ? '1' : '0';
-        ctx.fillText(text, i * 20, drops[i] * 20);
-
-        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    };
-
-    const interval = setInterval(draw, 33);
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', handleResize);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <main className="relative">
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 w-full h-full -z-10"
-      />
-      
-      {/* Hero Section */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8">
-        <div className="max-w-5xl w-full text-center">
-          <div className="mb-6 text-7xl animate-bounce">🚀</div>
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-[0_0_10px_rgba(0,255,0,0.7)]">
-            CommerceCult
+    <main className="bg-black">
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            backgroundImage: 'url(https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2874&auto=format&fit=crop)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-10" />
+        
+        {/* Hero Content */}
+        <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
+          <h1 
+            className="text-6xl md:text-8xl font-bold mb-6 text-white"
+            style={{
+              transform: `translateY(${scrollY * 0.3}px)`,
+              opacity: 1 - scrollY / 500,
+            }}
+          >
+            Build Your Business<br/>
+            <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+              With AI Power
+            </span>
           </h1>
-          <p className="text-2xl md:text-4xl text-green-400 font-semibold drop-shadow-[0_0_8px_rgba(0,255,0,0.5)] mb-4">
-            Your AI Business Intelligence Software
+          <p 
+            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+            style={{
+              transform: `translateY(${scrollY * 0.2}px)`,
+              opacity: 1 - scrollY / 400,
+            }}
+          >
+            Generate business plans, create content, analyze markets, and secure funding—all in one intelligent platform.
           </p>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            The complete AI-powered platform to generate business plans, create videos, analyze markets, 
-            and launch your startup with confidence. Everything you need in one place.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            style={{
+              transform: `translateY(${scrollY * 0.1}px)`,
+              opacity: 1 - scrollY / 300,
+            }}
+          >
             <Link
               href="/signup"
-              className="inline-block px-12 py-6 text-2xl font-bold text-black bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-300 hover:to-blue-300 rounded-lg shadow-[0_0_30px_rgba(0,255,0,0.6)] transition-all duration-300 transform hover:scale-105"
+              className="px-10 py-5 text-xl font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105"
             >
-              Start 60-Day Free Trial
+              Start Free Trial
             </Link>
             <Link
-              href="/login"
-              className="inline-block px-10 py-5 text-xl font-bold text-white bg-gray-800 hover:bg-gray-700 rounded-lg border-2 border-green-400 shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all duration-300 transform hover:scale-105"
+              href="#features"
+              className="px-10 py-5 text-xl font-bold text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300 border border-white/30"
             >
-              🔐 Login
+              Learn More
             </Link>
           </div>
-          
-          {/* Stats Section */}
-          <div className="mt-16 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <StatCard icon="📊" value="10K+" label="Plans Generated" />
-            <StatCard icon="💰" value="$50M+" label="Funding Raised" />
-            <StatCard icon="🌟" value="4.9/5" label="User Rating" />
+        </div>
+
+        {/* Scroll Indicator */}
+        <div 
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce"
+          style={{ opacity: 1 - scrollY / 200 }}
+        >
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center pt-2">
+            <div className="w-1 h-3 bg-white/70 rounded-full" />
           </div>
         </div>
       </section>

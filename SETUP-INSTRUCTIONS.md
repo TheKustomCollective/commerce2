@@ -1,4 +1,4 @@
-'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL# Setup Instructions for CommerceCult
+# Setup Instructions for CommerceCult
 
 ## All Problems Fixed ✅
 

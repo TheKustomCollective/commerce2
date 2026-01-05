@@ -1,5 +1,4 @@
 import './globals.css'
-import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import RaphaelAssistant from './components/RaphaelAssistant'
 import LiveChat from './components/LiveChat'
@@ -27,7 +26,6 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen">
-        <Navigation />
         <main className="flex-1 w-full">
           {children}
         </main>

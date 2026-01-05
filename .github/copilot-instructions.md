@@ -20,8 +20,9 @@ commerce2/
 - **Deployment**: Vercel (configured via root `vercel.json`)
 - **Authentication**: In-memory user store (`lib/auth.ts`) - OAuth ready but using Map-based storage
 - **API Routes**: Next.js Route Handlers in `app/api/*/route.ts`
-- **AI Integration**: OpenAI GPT-4o-mini for business plan generation
+- **AI Integration**: OpenAI GPT-4o-mini for business plan generation (also podcast/video generators)
 - **State Management**: React hooks, no external state library
+- **Styling**: Tailwind CSS utility classes, no CSS modules or styled-components
 
 ## Developer Workflows
 
@@ -45,28 +46,28 @@ npm run lint            # TypeScript/ESLint checks
 
 ### Environment Variables (Required for Production)
 See `OAUTH-SETUP.md` for detailed setup. Required variables:
-- `OPENAI_API_KEY` - AI business plan generation
-- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` - OAuth
-- `NEXT_PUBLIC_GOOGLE_ADSENSE_ID` - AdSense integration
-- `NEXT_PUBLIC_URL` - OAuth callback URL (https://commercecult.app)
+- `OPENAI_API_KEY` - AI business plan generation, podcast/video scripts
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` - OAuth authentication
+- `NEXT_PUBLIC_GOOGLE_ADSENSE_ID` - AdSense integration for monetization
+- `NEXT_PUBLIC_URL` - OAuth callback URL (https://commercecult.app for production)
 
-**Note**: OAuth routes have graceful fallback if credentials not configured. See `app/api/auth/google/route.ts` lines 12-18.
+**Note**: OAuth routes have graceful fallback if credentials not configured. See [app/api/auth/google/route.ts](CommerceCult_app_v2-1/frontend/app/api/auth/google/route.ts#L12-L18).
 
 ## Project-Specific Patterns
 
 ### Authentication Architecture
-- **Storage**: In-memory Map (`lib/auth.ts` line 14) - NOT persistent across deployments
+- **Storage**: In-memory Map ([lib/auth.ts](CommerceCult_app_v2-1/frontend/lib/auth.ts#L14)) - NOT persistent across deployments
 - **User model**: email, password (base64 encoded), name, company, plan, provider
-- **OAuth protection**: Users who sign up via OAuth CANNOT log in with password (see `app/api/login/route.ts` line 37)
+- **OAuth protection**: Users who sign up via OAuth CANNOT log in with password (see [app/api/login/route.ts](CommerceCult_app_v2-1/frontend/app/api/login/route.ts#L37))
 - **Demo account**: `demo@commercecult.app` / `demo1234` always available
-- **Session**: JWT-like pattern but simplified (see auth.ts for implementation)
+- **Session**: JWT-like pattern but simplified (see [lib/auth.ts](CommerceCult_app_v2-1/frontend/lib/auth.ts) for implementation)
 
-**Critical for auth changes**: Update `User` interface in `lib/auth.ts` AND all signup/OAuth routes.
+**Critical for auth changes**: Update `User` interface in [lib/auth.ts](CommerceCult_app_v2-1/frontend/lib/auth.ts) AND all signup/OAuth routes.
 
 ### Next.js App Router Conventions
 - **Client components**: MUST include `'use client'` directive (see all pages in `app/`)
 - **API routes**: Use `route.ts` files, export `GET`/`POST` functions returning `NextResponse`
-- **Layout hierarchy**: Root `layout.tsx` wraps all pages with Navigation, Footer, RaphaelAssistant, LiveChat
+- **Layout hierarchy**: Root [layout.tsx](CommerceCult_app_v2-1/frontend/app/layout.tsx) wraps all pages with Navigation, Footer, RaphaelAssistant, LiveChat
 - **Metadata**: Server components can export `metadata` object for SEO
 
 ### Component Patterns
@@ -81,7 +82,7 @@ See `OAUTH-SETUP.md` for detailed setup. Required variables:
 3. **State management**: All pages use `useState` for local state, no Redux/Context API
 
 ### API Route Structure
-Example pattern from `app/api/generate-plan/route.ts`:
+Example pattern from [app/api/generate-plan/route.ts](CommerceCult_app_v2-1/frontend/app/api/generate-plan/route.ts):
 ```typescript
 export async function POST(request: NextRequest) {
   const data = await request.json()
@@ -114,7 +115,7 @@ export async function POST(request: NextRequest) {
 
 ### Adding a New Page
 1. Create `app/[pagename]/page.tsx` with `'use client'` directive
-2. Add navigation link in `app/components/Navigation.tsx`
+2. Add navigation link in [app/components/Navigation.tsx](CommerceCult_app_v2-1/frontend/app/components/Navigation.tsx)
 3. Use Tailwind for styling (globals.css imported in layout)
 
 ### Adding an API Endpoint
@@ -124,8 +125,8 @@ export async function POST(request: NextRequest) {
 4. Handle missing env vars gracefully (return fallback, don't crash)
 
 ### Modifying Authentication
-1. Update `User` interface in `lib/auth.ts` FIRST
-2. Update all signup routes: `app/api/signup/route.ts`, `app/api/auth/google/callback/route.ts`
+1. Update `User` interface in [lib/auth.ts](CommerceCult_app_v2-1/frontend/lib/auth.ts) FIRST
+2. Update all signup routes: [app/api/signup/route.ts](CommerceCult_app_v2-1/frontend/app/api/signup/route.ts), [app/api/auth/google/callback/route.ts](CommerceCult_app_v2-1/frontend/app/api/auth/google/callback/route.ts)
 3. Update demo user initialization (auth.ts line 26)
 4. Test OAuth flow AND password login
 
@@ -137,14 +138,14 @@ export async function POST(request: NextRequest) {
 
 | File | Purpose |
 |------|---------|
-| `vercel.json` | Deployment config (build commands, output dir) |
-| `app/layout.tsx` | Root layout, global components, AdSense script |
-| `lib/auth.ts` | User storage, password hashing, demo account |
-| `app/api/generate-plan/route.ts` | AI business plan generation (275 lines) |
-| `app/components/RaphaelAssistant.tsx` | Chatbot widget (268 lines) |
-| `OAUTH-SETUP.md` | Environment variable setup guide |
-| `DEPLOYMENT.md` | Vercel deployment instructions |
-| `SITE-COMPLETION-ROADMAP.md` | Feature status and TODOs |
+| [vercel.json](vercel.json) | Deployment config (build commands, output dir) |
+| [app/layout.tsx](CommerceCult_app_v2-1/frontend/app/layout.tsx) | Root layout, global components, AdSense script |
+| [lib/auth.ts](CommerceCult_app_v2-1/frontend/lib/auth.ts) | User storage, password hashing, demo account |
+| [app/api/generate-plan/route.ts](CommerceCult_app_v2-1/frontend/app/api/generate-plan/route.ts) | AI business plan generation (275 lines) |
+| [app/components/RaphaelAssistant.tsx](CommerceCult_app_v2-1/frontend/app/components/RaphaelAssistant.tsx) | Chatbot widget (268 lines) |
+| [OAUTH-SETUP.md](OAUTH-SETUP.md) | Environment variable setup guide |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | Vercel deployment instructions |
+| [SITE-COMPLETION-ROADMAP.md](SITE-COMPLETION-ROADMAP.md) | Feature status and TODOs |
 
 ## Known Quirks
 
@@ -157,9 +158,9 @@ export async function POST(request: NextRequest) {
 ## Before Making Changes
 
 1. Run `npm run build` in frontend directory to verify TypeScript types
-2. Check `SITE-COMPLETION-ROADMAP.md` for current feature status
+2. Check [SITE-COMPLETION-ROADMAP.md](SITE-COMPLETION-ROADMAP.md) for current feature status
 3. If modifying auth: test both OAuth AND password login flows
-4. If adding env vars: update `OAUTH-SETUP.md` documentation
+4. If adding env vars: update [OAUTH-SETUP.md](OAUTH-SETUP.md) documentation
 5. If changing API routes: check for graceful fallback patterns
 
 ---
