@@ -12,7 +12,7 @@ Single-page form collecting:
 - **Business Type** - Select dropdown (6 options: Online Store, Physical Storefront, Service Provider, SaaS/Software, Manufacturing, Hybrid)
 - **Location** - Text input (city/state or "Online")
 - **Target Market** - Text input (customer segment description)
-- **Funding Needed** - Select dropdown ($25K to $1M+)
+- **Funding Needed** - Select dropdown ($1 to $1M+)
 - **Business Description** - Textarea (product/service description, problem solved, unique value)
 
 ### 2. AI Generation Process
@@ -64,14 +64,14 @@ Single-page form collecting:
 - 5 Key Features
 - Pricing Strategy:
   - Value-based pricing approach
-  - 3 Pricing Tiers (Basic $49/45% margin, Standard $99/52% margin, Premium $199/58% margin)
+  - Lifetime Membership 99.99 or 1 mo. for 19.99)
 
 #### 📣 Section 5: Marketing Strategy
 - Multi-channel strategy description
 - 4 Marketing Channels with budgets:
-  - Social Media Marketing: $2K/month (500 leads)
-  - Search Engine Marketing: $3K/month (800 leads)
-  - Content Marketing: $1.5K/month (300 leads)
+  - Social Media Marketing: $300/month (500 leads)
+  - Search Engine Marketing: $0/month (800 leads)
+  - Content Marketing: $0/month (300 leads)
   - Email Marketing: $500/month (200 leads)
 - Key Metrics Dashboard:
   - Customer Acquisition Cost: $45
@@ -80,7 +80,7 @@ Single-page form collecting:
 
 #### ⚙️ Section 6: Operations Plan
 - Location details
-- Facilities (2,500 sq ft office + warehouse)
+- Facilities (2500 sq ft office + warehouse)
 - Equipment & Technology
 - Supplier Strategy (3-tier supplier structure)
 - Team Structure with salaries:

@@ -102,14 +102,35 @@ export async function POST(request: NextRequest) {
 
 **Pattern**: Graceful degradation when API keys missing (return template data, never throw errors).
 
-### Marketing Bot (`bot/` directory)
-- **Purpose**: Autonomous social media posting, content curation
-- **Tech**: Node.js with twitter-api-v2, axios, dotenv
-- **Scripts**: `npm run post`, `npm run curate`
-- **Config**: `config/posting-schedule.json` defines campaign timing
-- **Persona**: "Omni" - AI marketing intelligence bot (see `agents.md`)
+### Error Handling Philosophy
+- **API routes**: Always return 200 with fallback data if external APIs fail (OpenAI, etc.)
+- **Forms**: Show user-friendly error messages, never expose stack traces
+- **Validation**: Validate at API route level, not just client-side
+- **Demo account**: Always keep `demo@commercecult.app` working as fallback auth method
+- **Missing env vars**: Application should start and run with degraded functionality, not crash
 
-**Integration**: Bot is separate from main app, runs via scheduled tasks (future GitHub Actions).
+Example error handling pattern from [login route.ts](CommerceCult_app_v2-1/frontend/app/api/login/route.ts):
+```typescript
+// OAuth user attempting password login
+if (!user.password && user.provider) {
+  return NextResponse.json(
+    { error: `This account uses ${user.provider} login...` },
+    { status: 401 }
+  )
+}
+```
+
+### Marketing Bot (`bot/` directory)
+- **Purpose**: Autonomous social media posting, content curation, knowledge base management
+- **Tech**: Node.js with twitter-api-v2, axios, dotenv
+- **Scripts**: 
+  - `npm run post` - Execute social media posting via [social-media-poster.js](bot/scripts/social-media-poster.js)
+  - `npm run curate` - Run content curation via [content-curator.js](bot/scripts/content-curator.js)
+- **Config**: [config/posting-schedule.json](bot/config/posting-schedule.json) defines campaign timing
+- **Persona**: "Omni" - AI marketing intelligence bot with predictive analytics (see [agents.md](bot/agents.md))
+- **Architecture**: Standalone Node.js app with modular script architecture ([omni-engine.js](bot/scripts/omni-engine.js), [knowledge-updater.js](bot/scripts/knowledge-updater.js))
+
+**Integration**: Bot is separate from main app, runs independently. Future: GitHub Actions scheduled workflows.
 
 ## Common Tasks
 
@@ -149,11 +170,13 @@ export async function POST(request: NextRequest) {
 
 ## Known Quirks
 
-1. **No backend**: API routes ARE the backend. No separate Express/Node server.
-2. **No database**: User storage is in-memory Map (resets on deploy). Future: migrate to Supabase/MongoDB.
-3. **OAuth accounts can't use password login**: Intentional security feature (see login route.ts line 37-42).
-4. **Malformed JSON note removed**: `package.json` is valid, previous instructions were outdated.
-5. **Components always mount**: RaphaelAssistant, LiveChat mount on every page (see layout.tsx).
+1. **No persistent database**: User storage is in-memory Map (resets on deploy). All user data is volatile. Future: migrate to Supabase/MongoDB for persistence.
+2. **OAuth accounts can't use password login**: Intentional security feature. Users registered via OAuth (Google) must always use OAuth (see [login route.ts](CommerceCult_app_v2-1/frontend/app/api/login/route.ts#L37-L42)).
+3. **Components always mount**: RaphaelAssistant, LiveChat, Navigation, Footer mount on every page via root layout (see [layout.tsx](CommerceCult_app_v2-1/frontend/app/layout.tsx)).
+4. **No separate backend server**: Next.js API routes ARE the backend. No Express/Node server needed.
+5. **Monorepo without workspace tools**: Multiple projects in one repo, but no Yarn workspaces or Turborepo. Each project has its own `package.json`.
+6. **Bot runs independently**: Marketing bot has separate Node.js runtime, not integrated with Next.js app. Run from `bot/` directory.
+7. **No automated testing**: No Jest/Vitest setup currently. Manual testing workflow via `npm run build` for type checking.
 
 ## Before Making Changes
 
